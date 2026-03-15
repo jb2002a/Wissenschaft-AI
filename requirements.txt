@@ -1,4 +1,4 @@
 dspy
 pydantic
 python-dotenv
-
+langtrace-python-sdk

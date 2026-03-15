@@ -1,6 +1,16 @@
 """번역·Judge·최적화 전체 오케스트레이션."""
 
+import os
 from typing import Optional
+
+from dotenv import load_dotenv
+from langtrace_python_sdk import langtrace
+
+load_dotenv()
+
+_LANGTRACE_API_KEY = os.getenv("LANGTRACE_API_KEY")
+if _LANGTRACE_API_KEY:
+    langtrace.init(api_key=_LANGTRACE_API_KEY)
 
 import dspy
 
