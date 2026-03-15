@@ -1,54 +1,38 @@
-"""LM 로드(get_lm) 및 JSON 형식 호출(invoke)."""
+"""LM 로드(get_lm) 및 predict(invoke)."""
 
-import json
 import os
 
 import dspy
 from dotenv import load_dotenv
 
-from src.translation.signatures.invoke import Invoke
-
 load_dotenv()
 
 _DEFAULT_MODEL = "gemini/gemini-2.0-flash"
-_lm = None
-_current_model = _DEFAULT_MODEL
 
-
-def get_lm(
-    model: str | None = None,
-    temperature: float | None = None,
-    api_key: str | None = None,
-):
+def get_lm() -> None:
     """DSPy LM을 로드하고 전역으로 설정한다. 기본: gemini/gemini-2.0-flash."""
-    global _lm, _current_model
-    model = model or _DEFAULT_MODEL
-    _current_model = model
-    api_key = api_key or os.getenv("GOOGLE_API_KEY")
-    kwargs = {}
-    if temperature is not None:
-        kwargs["temperature"] = temperature
-    _lm = dspy.LM(model, api_key=api_key, **kwargs)
-    dspy.configure(lm=_lm)
-    return _lm
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        raise ValueError("GOOGLE_API_KEY가 설정되지 않았습니다.")
+    lm = dspy.LM(_DEFAULT_MODEL, api_key=api_key, temperature=0.0)
+    dspy.configure(lm=lm)
 
 
-def invoke(
-    prompt: str,
-    temperature: float | None = None,
-    model: str | None = None,
-) -> dict:
-    """프롬프트를 LM에 보내고, JSON 형식 응답을 파싱해 dict로 반환한다."""
+def invoke(input_text: str) -> str:
+    """프롬프트를 LM에 보내고 predict한 응답 문자열을 반환한다."""
     if dspy.settings.lm is None:
-        get_lm(model=model, temperature=temperature)
-    elif model is not None or temperature is not None:
-        get_lm(model=model or _current_model, temperature=temperature)
+        get_lm()
 
-    predictor = dspy.Predict(Invoke)
-    out = predictor(prompt=prompt)
-    raw = getattr(out, "response", None) or str(out)
+    predictor= dspy.Predict(
+        dspy.Signature(
+        "input_text -> response : str",
+        )
+    )
 
-    try:
-        return json.loads(raw)
-    except json.JSONDecodeError:
-        return {"text": raw}
+    out = predictor(input_text=input_text)
+    return out.response
+
+
+# __main__
+if __name__ == "__main__":
+    print(invoke("DSPy가 Langchain보다 강점을 가지고 있는 이유를 설명해줘"))
