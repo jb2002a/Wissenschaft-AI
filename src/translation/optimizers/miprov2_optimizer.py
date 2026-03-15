@@ -18,7 +18,7 @@ def compile_translation_with_miprov2(
     train_ratio: float = 0.6,
     seed: int = 42,
     shuffle: bool = True,
-    auto: str = "medium",
+    auto: str = "auto",
     max_bootstrapped_demos: int = 6,
     max_labeled_demos: int = 6,
     num_trials: int = 50,
