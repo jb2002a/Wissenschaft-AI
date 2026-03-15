@@ -33,6 +33,7 @@ def compile_translation_with_miprov2(
         max_bootstrapped_demos=max_bootstrapped_demos,
         max_labeled_demos=max_labeled_demos,
         num_threads=num_threads,
+        num_threads_eval=4,
     )
 
     student = TranslateModule()

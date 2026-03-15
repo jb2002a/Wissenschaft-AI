@@ -1,16 +1,13 @@
 """번역·Judge·최적화 전체 오케스트레이션."""
 
-import os
+# python -c "from src.translation.pipeline import run_translation_optimization; run_translation_optimization()"
+# 필요 시 langtrace로 모니터링하려면: LANGTRACE_API_KEY 설정 후 langtrace_python_sdk의 langtrace.init(api_key=...)를 호출한다.
+
 from typing import Optional
 
 from dotenv import load_dotenv
-from langtrace_python_sdk import langtrace
 
 load_dotenv()
-
-_LANGTRACE_API_KEY = os.getenv("LANGTRACE_API_KEY")
-if _LANGTRACE_API_KEY:
-    langtrace.init(api_key=_LANGTRACE_API_KEY)
 
 import dspy
 
