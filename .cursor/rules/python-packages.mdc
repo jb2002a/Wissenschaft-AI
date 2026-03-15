@@ -1,0 +1,10 @@
+---
+description: Python 패키지·import 관례 (__init__.py, re-export)
+alwaysApply: true
+---
+
+# Python 패키지 관례
+
+- **`__init__.py`**: 패키지로 인식시키기 위해 **파일만 만들어 두면 된다.** 내용은 비워 두거나 docstring만 넣어도 된다. re-export(`from ... import`, `__all__`)는 **선택 사항**이다.
+- **import**: 패키지의 `__init__.py`에 re-export를 넣지 않을 경우, 사용하는 쪽에서는 **모듈까지 명시**해서 가져온다.  
+  예: `from src.translation.signatures.invoke import Invoke` (패키지 + 모듈 경로 명시).
