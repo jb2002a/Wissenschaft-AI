@@ -1,0 +1,375 @@
+최종
+
+devset을 10% 증가(valset size: 96)
+
+저장로직 추가하여 json에 저장예정.
+
+
+(.venv) PS C:\Users\jb\Desktop\Git\Wissenschaft-AI> python -c "from src.translation.optimizers.miprov2_optimizer import compile_translation_with_miprov2; compile_translation_with_miprov2()"
+2026/03/16 02:01:29 INFO dspy.teleprompt.mipro_optimizer_v2: 
+RUNNING WITH THE FOLLOWING MEDIUM AUTO RUN SETTINGS:
+num_trials: 18
+minibatch: True
+num_fewshot_candidates: 12
+num_instruct_candidates: 6
+valset size: 96
+
+2026/03/16 02:01:29 INFO dspy.teleprompt.mipro_optimizer_v2: 
+==> STEP 1: BOOTSTRAP FEWSHOT EXAMPLES <==
+2026/03/16 02:01:29 INFO dspy.teleprompt.mipro_optimizer_v2: These will be used as few-shot example candidates for our program and for creating instructions.
+
+2026/03/16 02:01:29 INFO dspy.teleprompt.mipro_optimizer_v2: Bootstrapping N=12 sets of demonstrations...
+Bootstrapping set 1/12
+Bootstrapping set 2/12
+Bootstrapping set 3/12
+  6%|██████▏                                                                                            | 6/96 [00:35<08:50,  5.89s/it] 
+Bootstrapped 6 full traces after 6 examples for up to 1 rounds, amounting to 6 attempts.
+Bootstrapping set 4/12
+  6%|██████▏                                                                                            | 6/96 [00:35<08:54,  5.94s/it] 
+Bootstrapped 6 full traces after 6 examples for up to 1 rounds, amounting to 6 attempts.
+Bootstrapping set 5/12
+  1%|█                                                                                                  | 1/96 [00:19<30:28, 19.25s/it] 
+Bootstrapped 1 full traces after 1 examples for up to 1 rounds, amounting to 1 attempts.
+Bootstrapping set 6/12
+  2%|██                                                                                                 | 2/96 [00:11<08:54,  5.68s/it] 
+Bootstrapped 2 full traces after 2 examples for up to 1 rounds, amounting to 2 attempts.
+Bootstrapping set 7/12
+  6%|██████▏                                                                                            | 6/96 [00:38<09:34,  6.38s/it] 
+Bootstrapped 6 full traces after 6 examples for up to 1 rounds, amounting to 6 attempts.
+Bootstrapping set 8/12
+  6%|██████▏                                                                                            | 6/96 [00:37<09:20,  6.23s/it] 
+Bootstrapped 6 full traces after 6 examples for up to 1 rounds, amounting to 6 attempts.
+Bootstrapping set 9/12
+  4%|████▏                                                                                              | 4/96 [00:25<09:49,  6.41s/it] 
+Bootstrapped 4 full traces after 4 examples for up to 1 rounds, amounting to 4 attempts.
+Bootstrapping set 10/12
+  3%|███                                                                                                | 3/96 [00:17<08:47,  5.67s/it] 
+Bootstrapped 3 full traces after 3 examples for up to 1 rounds, amounting to 3 attempts.
+Bootstrapping set 11/12
+  1%|█                                                                                                  | 1/96 [00:07<11:10,  7.06s/it] 
+Bootstrapped 1 full traces after 1 examples for up to 1 rounds, amounting to 1 attempts.
+Bootstrapping set 12/12
+  6%|██████▏                                                                                            | 6/96 [00:36<09:08,  6.10s/it] 
+Bootstrapped 6 full traces after 6 examples for up to 1 rounds, amounting to 6 attempts.
+2026/03/16 02:05:52 INFO dspy.teleprompt.mipro_optimizer_v2:
+==> STEP 2: PROPOSE INSTRUCTION CANDIDATES <==
+2026/03/16 02:05:52 INFO dspy.teleprompt.mipro_optimizer_v2: We will use the few-shot examples from the previous step, a generated dataset summary, a summary of the program code, and a randomly selected prompting tip to propose instructions.
+class GermanToKorean(dspy.Signature):
+    """Translate German philosophical academic books into natural Korean. Output must be written entirely in Korean."""
+
+    original_text: str = dspy.InputField(desc="German text to translate")
+    translated_text: str = dspy.OutputField(desc="Korean translation of the input German text")
+
+2026/03/16 02:06:05 INFO dspy.teleprompt.mipro_optimizer_v2: 
+Proposing N=6 instructions...
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2: Proposed Instructions for Predictor 0:
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2: 0: Translate German philosophical academic books into natural Korean. Output must be written entirely in Korean.
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2: 1: You are an expert translator specializing in German philosophical and academic texts to Korean. Your task is to translate 19th-century German philosophical prose—particularly from Wilhelm Dilthey and related 
+works in Geisteswissenschaften (human sciences)—into natural, fluent Korean.
+
+**Translation Guidelines:**
+
+1. **Preserve Philosophical Precision**: Maintain the exact conceptual meaning and philosophical nuances of German terminology. Use established Korean philosophical vocabulary where available.
+
+2. **Handle Complex Sentence Structures**: German philosophical texts often feature long, nested sentences with multiple subordinate clauses. Restructure these into natural Korean syntax while preserving logical relationships and argumentative flow.
+
+3. **Maintain Academic Register**: Use formal, scholarly Korean appropriate for academic philosophical discourse (학술적 문어체). The translation should read as naturally as a Korean philosophy text, not as a literal conversion.
+
+4. **Cultural-Linguistic Adaptation**: Bridge the significant linguistic distance between German and Korean by adapting idiomatic expressions and syntactic patterns to Korean conventions while keeping philosophical content intact.
+
+5. **Contextual Coherence**: Since texts are sequential excerpts from coherent philosophical arguments, maintain consistency in terminology and style across related passages.
+
+6. **Complete Korean Output**: Your entire translation must be written in Korean characters (Hangul) with appropriate use of Sino-Korean terms (한자어) common in philosophical discourse.
+
+**Input**: German philosophical text (original_text)
+**Output**: Natural Korean translation that reads fluently while preserving the intellectual depth and argumentative structure of the original
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2: 2: You are a specialized German-to-Korean translator with deep expertise in 19th-century German philosophy and academic discourse. Your task is to translate complex philosophical texts from German into natural, 
+academically sophisticated Korean.
+
+**Translation Principles:**
+
+1. **Philosophical Precision**: Preserve the exact conceptual meaning of philosophical terminology. Terms like "Geisteswissenschaften," 
+"Wille," or "Versuch" carry specific philosophical weight that must be maintained in Korean equivalents.
+
+2. **Structural Integrity**: German philosophical prose often features long, nested sentence structures with multiple subordinate clauses. Render these into Korean while maintaining logical flow and readability. Use appropriate Korean connectives (왜냐하면, 그러므로, 비록
+...지만) to preserve argumentative structure.
+
+3. **Academic Register**: Maintain the formal, scholarly tone appropriate to 19th-century philosophical discourse. Use formal Korean verb endings and academic vocabulary that matches the gravitas of the source material.
+
+4. **Cultural-Linguistic Bridging**: When encountering German-specific concepts, provide Korean renderings that are both accurate and natural to Korean academic conventions. For proper names and established philosophical terms, use accepted Korean transliterations or translations.
+
+5. **Contextual Coherence**: These texts are sequential excerpts from continuous philosophical arguments. Ensure translations maintain consistency in terminology and conceptual threads across passages.
+
+6. **Natural Korean Expression**: While preserving meaning, structure sentences according to Korean syntax patterns (subject-object-verb order, appropriate use of particles like 은/는, 이/가, 을/를). Avoid awkward literal translations that feel unnatural to Korean readers.
+
+**Output Requirement**: Provide ONLY the Korean translation with no additional commentary, explanations, or mixed-language content. The 
+entire output must be in Korean.
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2: 3: Translate the German philosophical text into natural, fluent Korean. Preserve the original meaning, conceptual precision, and argumentative structure of complex academic prose. Handle nested sentence structures, technical philosophical terminology, and abstract concepts accurately. Render all philosophical terms and concepts in appropriate Korean equivalents that maintain semantic fidelity. Output must be written entirely in Korean.
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2: 4: You are a specialized translator of 19th-century German philosophical and academic texts into Korean. Your task is to translate dense, complex German prose—particularly from the tradition of Geisteswissenschaften (human sciences) and hermeneutic philosophy—into natural, scholarly Korean that preserves both conceptual precision and argumentative flow.
+
+Key translation requirements:
+
+1. **Philosophical Terminology**: Accurately render sophisticated German philosophical concepts (e.g., "Lebenseinheit" → "생명 통일체", 
+"Geisteswissenschaften" → "정신과학") using established Korean philosophical vocabulary while maintaining conceptual fidelity.
+
+2. **Syntactic Complexity**: German academic prose features deeply nested sentence structures with multiple subordinate clauses. Restructure these into Korean syntax that feels natural while preserving logical relationships and the original argument's progression.        
+
+3. **Register and Tone**: Maintain the formal, scholarly register appropriate for academic philosophical discourse in Korean. The translation should read as authoritative academic Korean, not as a literal word-for-word rendering.
+
+4. **Cultural-Linguistic Adaptation**: Bridge the significant linguistic distance between German and Korean by adapting Germanic conceptual frameworks into forms comprehensible within Korean intellectual traditions, without distorting the original meaning.
+
+5. **Contextual Coherence**: Since texts are sequential excerpts from coherent philosophical works, maintain terminological consistency 
+and argumentative continuity across passages.
+
+6. **Complete Korean Output**: Your entire translation must be written in Korean—no German words, Latin phrases, or other languages should appear in the output unless they are proper nouns or untranslatable technical terms, which should then be presented in Korean phonetic transcription (한글 표기).
+
+Translate the provided German text into Korean following these principles.
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2: 5: You are an expert translator specializing in German-to-Korean translation of 19th and 20th-century philosophical and academic texts. Your expertise includes deep familiarity with German philosophical terminology (particularly from the hermeneutic and human sciences traditions), classical Korean academic prose styles, and the ability to render complex nested German sentence structures into natural, scholarly Korean that preserves both conceptual precision and argumentative flow.
+
+When translating, you should:
+1. Maintain the philosophical register and academic tone appropriate for Korean scholarly discourse
+2. Preserve the logical structure and nuance of complex German philosophical arguments
+3. Use appropriate Korean equivalents for technical philosophical terms (e.g., "Geisteswissenschaften" as "정신과학" or appropriate contextual variants)
+4. Render long, nested German sentences into Korean structures that are grammatically natural while maintaining the original's conceptual relationships
+5. Ensure the entire output is written in Korean with no German or other language fragments
+
+Translate the given German text into Korean that would be suitable for publication in Korean academic philosophical literature.
+
+2026/03/16 02:08:36 INFO dspy.teleprompt.mipro_optimizer_v2:
+
+2026/03/16 02:08:37 INFO dspy.teleprompt.mipro_optimizer_v2: ==> STEP 3: FINDING OPTIMAL PROMPT PARAMETERS <==
+2026/03/16 02:08:37 INFO dspy.teleprompt.mipro_optimizer_v2: We will evaluate the program over a series of trials with different combinations of instructions and few-shot examples to find the optimal combination using Bayesian Optimization.
+
+2026/03/16 02:08:37 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 1 / 23 - Full Evaluation of Default Program ==
+Average Metric: 430.00 / 96 (447.9%): 100%|████████████████████████████████████████████████████████████| 96/96 [00:32<00:00,  2.98it/s] 
+2026/03/16 02:09:09 INFO dspy.evaluate.evaluate: Average Metric: 430.0 / 96 (447.9%)
+2026/03/16 02:09:09 INFO dspy.teleprompt.mipro_optimizer_v2: Default program score: 447.92
+
+C:\Users\jb\Desktop\Git\Wissenschaft-AI\.venv\Lib\site-packages\optuna\_experimental.py:33: ExperimentalWarning: Argument ``multivariate`` is an experimental feature. The interface can change in the future.
+  optuna_warn(
+2026/03/16 02:09:09 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 2 / 23 - Minibatch ==
+Average Metric: 155.00 / 35 (442.9%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:59<00:00,  1.70s/it] 
+2026/03/16 02:10:08 INFO dspy.evaluate.evaluate: Average Metric: 155.0 / 35 (442.9%)
+2026/03/16 02:10:08 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 442.86 on minibatch of size 35 with parameters ['Predictor 0: Instruction 1', 'Predictor 0: Few-Shot Set 6'].
+2026/03/16 02:10:08 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86]
+2026/03/16 02:10:08 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92]
+2026/03/16 02:10:08 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 447.92
+2026/03/16 02:10:08 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2026/03/16 02:10:08 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 3 / 23 - Minibatch ==
+Average Metric: 158.00 / 35 (451.4%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:47<00:00,  1.37s/it] 
+2026/03/16 02:10:56 INFO dspy.evaluate.evaluate: Average Metric: 158.0 / 35 (451.4%)
+2026/03/16 02:10:56 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 451.43 on minibatch of size 35 with parameters ['Predictor 0: Instruction 4', 'Predictor 0: Few-Shot Set 2'].
+2026/03/16 02:10:56 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43]
+2026/03/16 02:10:56 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92]
+2026/03/16 02:10:56 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 447.92
+2026/03/16 02:10:56 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2026/03/16 02:10:56 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 4 / 23 - Minibatch ==
+Average Metric: 154.00 / 35 (440.0%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:47<00:00,  1.36s/it] 
+2026/03/16 02:11:44 INFO dspy.evaluate.evaluate: Average Metric: 154.0 / 35 (440.0%)
+2026/03/16 02:11:44 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 440.0 on minibatch of size 35 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 6'].
+2026/03/16 02:11:44 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0]
+2026/03/16 02:11:44 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92]
+2026/03/16 02:11:44 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 447.92
+2026/03/16 02:11:44 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2026/03/16 02:11:44 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 5 / 23 - Minibatch ==
+Average Metric: 155.00 / 35 (442.9%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:55<00:00,  1.58s/it] 
+2026/03/16 02:12:39 INFO dspy.evaluate.evaluate: Average Metric: 155.0 / 35 (442.9%)
+2026/03/16 02:12:39 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 442.86 on minibatch of size 35 with parameters ['Predictor 0: Instruction 2', 'Predictor 0: Few-Shot Set 4'].
+2026/03/16 02:12:39 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86]
+2026/03/16 02:12:39 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92]
+2026/03/16 02:12:39 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 447.92
+2026/03/16 02:12:39 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2026/03/16 02:12:39 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 6 / 23 - Minibatch ==
+Average Metric: 156.00 / 35 (445.7%): 100%|████████████████████████████████████████████████████████████| 35/35 [01:14<00:00,  2.12s/it] 
+2026/03/16 02:13:53 INFO dspy.evaluate.evaluate: Average Metric: 156.0 / 35 (445.7%)
+2026/03/16 02:13:53 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 445.71 on minibatch of size 35 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 5'].
+2026/03/16 02:13:53 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71]
+2026/03/16 02:13:53 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92]
+2026/03/16 02:13:53 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 447.92
+2026/03/16 02:13:53 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2026/03/16 02:13:53 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 7 / 23 - Full Evaluation =====
+2026/03/16 02:13:53 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 451.43) from minibatch trials...
+Average Metric: 433.00 / 96 (451.0%): 100%|████████████████████████████████████████████████████████████| 96/96 [01:40<00:00,  1.05s/it] 
+2026/03/16 02:15:34 INFO dspy.evaluate.evaluate: Average Metric: 433.0 / 96 (451.0%)
+2026/03/16 02:15:34 INFO dspy.teleprompt.mipro_optimizer_v2: New best full eval score! Score: 451.04
+2026/03/16 02:15:34 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04]
+2026/03/16 02:15:34 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:15:34 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2026/03/16 02:15:34 INFO dspy.teleprompt.mipro_optimizer_v2:
+
+2026/03/16 02:15:34 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 8 / 23 - Minibatch ==
+Average Metric: 154.00 / 35 (440.0%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:47<00:00,  1.37s/it] 
+2026/03/16 02:16:22 INFO dspy.evaluate.evaluate: Average Metric: 154.0 / 35 (440.0%)
+2026/03/16 02:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 440.0 on minibatch of size 35 with parameters ['Predictor 0: Instruction 4', 'Predictor 0: Few-Shot Set 6'].
+2026/03/16 02:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0]    
+2026/03/16 02:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04]
+2026/03/16 02:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2026/03/16 02:16:22 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 9 / 23 - Minibatch ==
+Average Metric: 156.00 / 35 (445.7%): 100%|████████████████████████████████████████████████████████████| 35/35 [01:05<00:00,  1.88s/it] 
+2026/03/16 02:17:27 INFO dspy.evaluate.evaluate: Average Metric: 156.0 / 35 (445.7%)
+2026/03/16 02:17:27 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 445.71 on minibatch of size 35 with parameters ['Predictor 0: Instruction 5', 'Predictor 0: Few-Shot Set 1'].
+2026/03/16 02:17:27 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71]
+2026/03/16 02:17:27 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04]
+2026/03/16 02:17:27 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:17:27 INFO dspy.teleprompt.mipro_optimizer_v2: =========================================
+
+
+2026/03/16 02:17:27 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 10 / 23 - Minibatch ==
+Average Metric: 161.00 / 35 (460.0%): 100%|████████████████████████████████████████████████████████████| 35/35 [01:13<00:00,  2.10s/it] 
+2026/03/16 02:18:41 INFO dspy.evaluate.evaluate: Average Metric: 161.0 / 35 (460.0%)
+2026/03/16 02:18:41 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 460.0 on minibatch of size 35 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 3'].
+2026/03/16 02:18:41 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0]
+2026/03/16 02:18:41 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04]
+2026/03/16 02:18:41 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:18:41 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:18:41 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 11 / 23 - Minibatch ==
+Average Metric: 156.00 / 35 (445.7%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:52<00:00,  1.50s/it] 
+2026/03/16 02:19:33 INFO dspy.evaluate.evaluate: Average Metric: 156.0 / 35 (445.7%)
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 445.71 on minibatch of size 35 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 11'].
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71]
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04]
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 12 / 23 - Minibatch ==
+Average Metric: 159.00 / 35 (454.3%): 100%|███████████████████████████████████████████████████████████| 35/35 [00:00<00:00, 267.17it/s] 
+2026/03/16 02:19:33 INFO dspy.evaluate.evaluate: Average Metric: 159.0 / 35 (454.3%)
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 454.29 on minibatch of size 35 with parameters ['Predictor 0: Instruction 4', 'Predictor 0: Few-Shot Set 2'].
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29]
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04]
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 13 / 23 - Full Evaluation =====
+2026/03/16 02:19:33 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 460.0) from minibatch trials...
+Average Metric: 433.00 / 96 (451.0%): 100%|████████████████████████████████████████████████████████████| 96/96 [01:16<00:00,  1.25it/s] 
+2026/03/16 02:20:50 INFO dspy.evaluate.evaluate: Average Metric: 433.0 / 96 (451.0%)
+2026/03/16 02:20:50 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04]
+2026/03/16 02:20:50 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:20:50 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2026/03/16 02:20:50 INFO dspy.teleprompt.mipro_optimizer_v2:
+
+2026/03/16 02:20:50 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 14 / 23 - Minibatch ==
+Average Metric: 153.00 / 35 (437.1%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:45<00:00,  1.29s/it] 
+2026/03/16 02:21:36 INFO dspy.evaluate.evaluate: Average Metric: 153.0 / 35 (437.1%)
+2026/03/16 02:21:36 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 437.14 on minibatch of size 35 with parameters ['Predictor 0: Instruction 1', 'Predictor 0: Few-Shot Set 2'].
+2026/03/16 02:21:36 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14]
+2026/03/16 02:21:36 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04]
+2026/03/16 02:21:36 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:21:36 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:21:36 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 15 / 23 - Minibatch ==
+Average Metric: 152.00 / 35 (434.3%): 100%|████████████████████████████████████████████████████████████| 35/35 [01:14<00:00,  2.13s/it] 
+2026/03/16 02:22:50 INFO dspy.evaluate.evaluate: Average Metric: 152.0 / 35 (434.3%)
+2026/03/16 02:22:50 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 434.29 on minibatch of size 35 with parameters ['Predictor 0: Instruction 5', 'Predictor 0: Few-Shot Set 3'].
+2026/03/16 02:22:50 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14, 434.29]
+2026/03/16 02:22:50 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04]
+2026/03/16 02:22:50 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:22:50 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:22:50 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 16 / 23 - Minibatch ==
+Average Metric: 158.00 / 35 (451.4%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:49<00:00,  1.41s/it] 
+2026/03/16 02:23:39 INFO dspy.evaluate.evaluate: Average Metric: 158.0 / 35 (451.4%)
+2026/03/16 02:23:39 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 451.43 on minibatch of size 35 with parameters ['Predictor 0: Instruction 2', 'Predictor 0: Few-Shot Set 9'].
+2026/03/16 02:23:39 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14, 434.29, 451.43]
+2026/03/16 02:23:39 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04]
+2026/03/16 02:23:39 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:23:39 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:23:39 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 17 / 23 - Minibatch ==
+Average Metric: 165.00 / 35 (471.4%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:44<00:00,  1.28s/it] 
+2026/03/16 02:24:24 INFO dspy.evaluate.evaluate: Average Metric: 165.0 / 35 (471.4%)
+2026/03/16 02:24:24 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 471.43 on minibatch of size 35 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 10'].
+2026/03/16 02:24:24 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14, 434.29, 451.43, 471.43]
+2026/03/16 02:24:24 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04]
+2026/03/16 02:24:24 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:24:24 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:24:24 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 18 / 23 - Minibatch ==
+Average Metric: 156.00 / 35 (445.7%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:25<00:00,  1.39it/s] 
+2026/03/16 02:24:49 INFO dspy.evaluate.evaluate: Average Metric: 156.0 / 35 (445.7%)
+2026/03/16 02:24:49 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 445.71 on minibatch of size 35 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 10'].
+2026/03/16 02:24:49 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14, 434.29, 451.43, 471.43, 445.71]
+2026/03/16 02:24:49 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04]
+2026/03/16 02:24:49 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 451.04
+2026/03/16 02:24:49 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:24:49 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 19 / 23 - Full Evaluation =====
+2026/03/16 02:24:49 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 458.57) from minibatch trials...
+Average Metric: 438.00 / 96 (456.2%): 100%|████████████████████████████████████████████████████████████| 96/96 [00:59<00:00,  1.62it/s] 
+2026/03/16 02:25:49 INFO dspy.evaluate.evaluate: Average Metric: 438.0 / 96 (456.2%)
+2026/03/16 02:25:49 INFO dspy.teleprompt.mipro_optimizer_v2: New best full eval score! Score: 456.25
+2026/03/16 02:25:49 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04, 456.25]
+2026/03/16 02:25:49 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 456.25
+2026/03/16 02:25:49 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2026/03/16 02:25:49 INFO dspy.teleprompt.mipro_optimizer_v2:
+
+2026/03/16 02:25:49 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 20 / 23 - Minibatch ==
+Average Metric: 158.00 / 35 (451.4%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:52<00:00,  1.49s/it] 
+2026/03/16 02:26:41 INFO dspy.evaluate.evaluate: Average Metric: 158.0 / 35 (451.4%)
+2026/03/16 02:26:41 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 451.43 on minibatch of size 35 with parameters ['Predictor 0: Instruction 0', 'Predictor 0: Few-Shot Set 10'].
+2026/03/16 02:26:41 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14, 434.29, 451.43, 471.43, 445.71, 451.43]
+2026/03/16 02:26:41 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04, 456.25]
+2026/03/16 02:26:41 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 456.25
+2026/03/16 02:26:41 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:26:41 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 21 / 23 - Minibatch ==
+Average Metric: 156.00 / 35 (445.7%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:49<00:00,  1.42s/it] 
+2026/03/16 02:27:31 INFO dspy.evaluate.evaluate: Average Metric: 156.0 / 35 (445.7%)
+2026/03/16 02:27:31 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 445.71 on minibatch of size 35 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 7'].
+2026/03/16 02:27:31 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14, 434.29, 451.43, 471.43, 445.71, 451.43, 445.71]
+2026/03/16 02:27:31 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04, 456.25]
+2026/03/16 02:27:31 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 456.25
+2026/03/16 02:27:31 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:27:31 INFO dspy.teleprompt.mipro_optimizer_v2: == Trial 22 / 23 - Minibatch ==
+Average Metric: 153.00 / 35 (437.1%): 100%|████████████████████████████████████████████████████████████| 35/35 [00:46<00:00,  1.33s/it] 
+2026/03/16 02:28:17 INFO dspy.evaluate.evaluate: Average Metric: 153.0 / 35 (437.1%)
+2026/03/16 02:28:17 INFO dspy.teleprompt.mipro_optimizer_v2: Score: 437.14 on minibatch of size 35 with parameters ['Predictor 0: Instruction 3', 'Predictor 0: Few-Shot Set 8'].
+2026/03/16 02:28:17 INFO dspy.teleprompt.mipro_optimizer_v2: Minibatch scores so far: [442.86, 451.43, 440.0, 442.86, 445.71, 440.0, 445.71, 460.0, 445.71, 454.29, 437.14, 434.29, 451.43, 471.43, 445.71, 451.43, 445.71, 437.14]
+2026/03/16 02:28:17 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04, 456.25]
+2026/03/16 02:28:17 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 456.25
+2026/03/16 02:28:17 INFO dspy.teleprompt.mipro_optimizer_v2: ==========================================
+
+
+2026/03/16 02:28:17 INFO dspy.teleprompt.mipro_optimizer_v2: ===== Trial 23 / 23 - Full Evaluation =====
+2026/03/16 02:28:17 INFO dspy.teleprompt.mipro_optimizer_v2: Doing full eval on next top averaging program (Avg Score: 451.43) from minibatch trials...
+Average Metric: 427.00 / 96 (444.8%): 100%|████████████████████████████████████████████████████████████| 96/96 [01:17<00:00,  1.24it/s] 
+2026/03/16 02:29:35 INFO dspy.evaluate.evaluate: Average Metric: 427.0 / 96 (444.8%)
+2026/03/16 02:29:35 INFO dspy.teleprompt.mipro_optimizer_v2: Full eval scores so far: [447.92, 451.04, 451.04, 456.25, 444.79]
+2026/03/16 02:29:35 INFO dspy.teleprompt.mipro_optimizer_v2: Best full score so far: 456.25
+2026/03/16 02:29:35 INFO dspy.teleprompt.mipro_optimizer_v2: =======================
+2026/03/16 02:29:35 INFO dspy.teleprompt.mipro_optimizer_v2:
+
+2026/03/16 02:29:35 INFO dspy.teleprompt.mipro_optimizer_v2: Returning best identified program with score 456.25!
