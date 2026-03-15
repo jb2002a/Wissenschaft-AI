@@ -39,7 +39,7 @@ def show_last_prompt(n: int = 1) -> None:
     dspy.settings.lm.inspect_history(n=n)
 
 
-# __main__
+# __main__ for testing
 if __name__ == "__main__":
     result = invoke(
         """
