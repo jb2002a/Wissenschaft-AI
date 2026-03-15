@@ -45,6 +45,18 @@ def translate(original_text: str) -> str:
     out = predictor(original_text=original_text)
     return out.translated_text
 
+
+def translate_with_optimized(
+    original_text: str,
+    optimized_path: str = "artifacts/translation_optimized.json",
+) -> str:
+    """optimized_path에 저장된 컴파일된 모듈을 로드한 뒤, 해당 모듈로 번역한다."""
+    get_lm()
+    module = TranslateModule()
+    module.load(optimized_path)
+    out = module(original_text=original_text)
+    return out.translated_text
+
 def show_last_prompt(n: int = 1) -> None:
     """마지막 n회 호출의 자동 생성 프롬프트와 응답을 콘솔에 출력한다.
     translate() 호출 후에 호출하면 된다."""
