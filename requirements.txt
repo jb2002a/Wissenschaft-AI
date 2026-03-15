@@ -1,2 +1,3 @@
 dspy
 pydantic
+python-dotenv
