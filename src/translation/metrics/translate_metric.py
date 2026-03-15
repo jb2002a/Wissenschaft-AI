@@ -1,35 +1,29 @@
-import json
-import re
+# src/translation/metrics/translate_metric.py
 import dspy
 
-from src.translation.modules.invoke import invoke
+from src.translation.signatures.translation_judge import TranslationQualityJudge
 
-def normalize_ko(text: str) -> str:
-    text = text.strip().lower()
-    text = re.sub(r"\s+", " ", text)
-    return text
 
-# 1) 데이터 로드
-with open("resources/initial_test_json_file.json", "r", encoding="utf-8") as f:
-    row = json.load(f)
+_judge = dspy.Predict(TranslationQualityJudge)
 
-# 2) DSPy Example로 감싸기 (입력 필드 지정)
-example = dspy.Example(
-    original_text=row["original_text"],
-    translated_text=row["translated_text"],
-).with_inputs("original_text")
 
-# 3) invoke()를 DSPy Prediction 형태로 래핑
-pred_text = invoke(example.original_text)
-pred = dspy.Prediction(translated_text=pred_text)
+def metric_llm(example, pred, trace=None) -> float:
+    """
+    Optimizer용 metric 시그니처:
+    - example.original_text: 원문
+    - example.translated_text: 인간 번역문(정답)
+    - pred.translated_text: 모델 번역문
+    """
+    out = _judge(
+        source_text=example.original_text,
+        reference_text=example.translated_text,
+        candidate_text=pred.translated_text,
+    )
 
-# 4) metric 정의 (가장 단순: 정규화 후 exact match)
-def metric_exact(example, pred, trace=None):
-    gold = normalize_ko(example.translated_text)
-    guess = normalize_ko(pred.translated_text)
-    return 1.0 if gold == guess else 0.0
+    # 모델 응답이 문자열로 오더라도 안전하게 float 변환
+    try:
+        score = float(out.score)
+    except (TypeError, ValueError):
+        score = 0.0
 
-score = metric_exact(example, pred)
-print("pred:", pred.translated_text)
-print("gold:", example.translated_text)
-print("score:", score)
+    return max(0.0, min(1.0, score))
