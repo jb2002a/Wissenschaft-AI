@@ -5,6 +5,7 @@ from src.translation.signatures.translation_judge import TranslationQualityJudge
 
 
 _judge = dspy.Predict(TranslationQualityJudge)
+_metric_cache: dict[tuple[str, str, str], float] = {}
 
 
 def _to_1to5_int(value, default: int = 1) -> int:
@@ -23,10 +24,18 @@ def metric_llm(example, pred, trace=None) -> float:
     - example.translated_text: 인간 번역문(정답)
     - pred.translated_text: 모델 번역문
     """
+    source_text = str(getattr(example, "original_text", ""))
+    reference_text = str(getattr(example, "translated_text", ""))
+    candidate_text = str(getattr(pred, "translated_text", ""))
+    cache_key = (source_text, reference_text, candidate_text)
+
+    if cache_key in _metric_cache:
+        return _metric_cache[cache_key]
+
     out = _judge(
-        source_text=example.original_text,
-        reference_text=example.translated_text,
-        candidate_text=pred.translated_text,
+        source_text=source_text,
+        reference_text=reference_text,
+        candidate_text=candidate_text,
     )
 
     faithfulness = _to_1to5_int(getattr(out, "faithfulness", None))
@@ -47,4 +56,6 @@ def metric_llm(example, pred, trace=None) -> float:
         / 5
     )
 
-    return float(max(1, min(5, score)))
+    final_score = float(max(1, min(5, score)))
+    _metric_cache[cache_key] = final_score
+    return final_score

@@ -2,7 +2,7 @@
 
 # 직접 실행 예시:
 # python -c "from src.translation.optimizers.miprov2_optimizer import compile_translation_with_miprov2; compile_translation_with_miprov2()"
-# python -c "from src.translation.optimizers.miprov2_optimizer import compile_translation_with_miprov2; compile_translation_with_miprov2(save_path='artifacts/translation_optimized.json', load_if_exists=True, save_after_compile=True)"
+# python -c "from src.translation.optimizers.miprov2_optimizer import compile_translation_with_miprov2; compile_translation_with_miprov2(save_path='artifacts/translation_optimized.json')"
 
 import os
 from typing import Any, Optional
@@ -15,35 +15,25 @@ from src.translation.modules.translate import TranslateModule, get_lm
 
 
 def compile_translation_with_miprov2(
-    train_ratio: float = 0.6,
+    train_ratio: float = 0.5,
     seed: int = 42,
     shuffle: bool = True,
-    auto: str = "auto",
+    auto: str = "medium",
     max_bootstrapped_demos: int = 6,
     max_labeled_demos: int = 6,
-    num_trials: int = 50,
     num_threads: Optional[int] = 4,
-    save_path: Optional[str] = None,
-    load_if_exists: bool = False,
-    save_after_compile: bool = False,
+    save_path: str = "artifacts/translation_optimized.json",
+    save_after_compile: bool = True,
     **compile_kwargs: Any,
-) -> dspy.Module:
+) -> None:
     """
     LM 설정 후 merged_mapping 길이 기준 train_ratio로 분할한 데이터로 MIPROv2를 실행한다.
-    기본값은 항상 compile만 수행하고 저장/로드를 하지 않는다.
-    load_if_exists=True면 save_path가 존재할 때 로드 후 반환한다.
-    save_after_compile=True면 compile 결과를 save_path에 저장한다.
+    기본값은 compile 결과를 save_path에 저장하며, load/return 동작은 하지 않는다.
+    save_after_compile=False면 compile만 수행하고 저장하지 않는다.
     """
     get_lm()
-    if load_if_exists and not save_path:
-        raise ValueError("load_if_exists=True이면 save_path를 함께 지정해야 합니다.")
-    if save_after_compile and not save_path:
+    if save_after_compile and not save_path.strip():
         raise ValueError("save_after_compile=True이면 save_path를 함께 지정해야 합니다.")
-
-    if load_if_exists and save_path and os.path.exists(save_path):
-        loaded = TranslateModule()
-        loaded.load(save_path)
-        return loaded
 
     trainset, valset = get_train_valset(train_ratio=train_ratio, seed=seed, shuffle=shuffle)
 
@@ -55,16 +45,19 @@ def compile_translation_with_miprov2(
         num_threads=num_threads,
     )
 
+    # auto 설정 시 num_trials/num_candidates는 사용 불가(에러 방지)
+    compile_kwargs = {k: v for k, v in compile_kwargs.items() if k not in ("num_trials", "num_candidates")}
+
     student = TranslateModule()
     optimized = optimizer.compile(
         student,
         trainset=trainset,
         valset=valset,
-        num_trials=num_trials,
         **compile_kwargs,
     )
 
-    if save_after_compile and save_path:
+    if save_after_compile:
+        save_dir = os.path.dirname(save_path)
+        if save_dir:
+            os.makedirs(save_dir, exist_ok=True)
         optimized.save(save_path)
-
-    return optimized
