@@ -1,10 +1,19 @@
-# src/translation/metrics/translate_metric.py
+
 import dspy
 
 from src.translation.signatures.translation_judge import TranslationQualityJudge
 
 
 _judge = dspy.Predict(TranslationQualityJudge)
+
+
+def _to_1to5_int(value, default: int = 1) -> int:
+    """Convert model output to int score and clamp to [1, 5]."""
+    try:
+        parsed = int(round(float(value)))
+    except (TypeError, ValueError):
+        parsed = default
+    return max(1, min(5, parsed))
 
 
 def metric_llm(example, pred, trace=None) -> float:
@@ -20,10 +29,22 @@ def metric_llm(example, pred, trace=None) -> float:
         candidate_text=pred.translated_text,
     )
 
-    # 모델 응답이 문자열로 오더라도 안전하게 float 변환
-    try:
-        score = float(out.score)
-    except (TypeError, ValueError):
-        score = 0.0
+    faithfulness = _to_1to5_int(getattr(out, "faithfulness", None))
+    terminology_accuracy = _to_1to5_int(getattr(out, "terminology_accuracy", None))
+    korean_fluency = _to_1to5_int(getattr(out, "korean_fluency", None))
+    style_register = _to_1to5_int(getattr(out, "style_register", None))
+    overall_score = _to_1to5_int(getattr(out, "overall_score", None))
 
-    return max(0.0, min(1.0, score))
+    # 소수점 없이 1~5 정수 점수만 사용하기 위해 평균 후 반올림
+    score = round(
+        (
+            faithfulness
+            + terminology_accuracy
+            + korean_fluency
+            + style_register
+            + overall_score
+        )
+        / 5
+    )
+
+    return float(max(1, min(5, score)))

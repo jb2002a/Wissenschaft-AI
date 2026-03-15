@@ -1,5 +1,8 @@
 """MIPROv2를 사용한 번역 프로그램 compile 엔트리."""
 
+# 직접 실행 예시:
+# python -c "from src.translation.optimizers.miprov2_optimizer import compile_translation_with_miprov2; compile_translation_with_miprov2(save_path='artifacts/translation_optimized.json')"
+
 from typing import Any, Optional
 
 import dspy
@@ -10,19 +13,20 @@ from src.translation.modules.translate import TranslateModule, get_lm
 
 
 def compile_translation_with_miprov2(
-    train_ratio: float = 0.8,
+    train_ratio: float = 0.6,
     seed: int = 42,
     shuffle: bool = True,
-    auto: str = "light",
-    max_bootstrapped_demos: int = 4,
-    max_labeled_demos: int = 4,
+    auto: str = "medium",
+    max_bootstrapped_demos: int = 6,
+    max_labeled_demos: int = 6,
+    num_trials: int = 50,
     num_threads: Optional[int] = 4,
     *,
     save_path: str,
     **compile_kwargs: Any,
 ) -> dspy.Module:
     """
-    LM 설정 후 merged_mapping 길이 기준 train_ratio(기본 4:1)로 분할한 데이터로 MIPROv2를 실행한다.
+    LM 설정 후 merged_mapping 길이 기준 train_ratio로 분할한 데이터로 MIPROv2를 실행한다.
     save_path에 최적화된 프로그램을 저장한다.
     """
     get_lm()
@@ -41,6 +45,7 @@ def compile_translation_with_miprov2(
         student,
         trainset=trainset,
         valset=valset,
+        num_trials=num_trials,
         **compile_kwargs,
     )
 
