@@ -5,7 +5,6 @@ from src.translation.signatures.translation_judge import TranslationQualityJudge
 
 
 _judge = dspy.Predict(TranslationQualityJudge)
-_metric_cache: dict[tuple[str, str, str], float] = {}
 
 
 def _to_1to5_int(value, default: int = 1) -> int:
@@ -17,25 +16,33 @@ def _to_1to5_int(value, default: int = 1) -> int:
     return max(1, min(5, parsed))
 
 
-def metric_llm(example, pred, trace=None) -> float:
+def _build_evaluation_scores(
+    faithfulness: int,
+    terminology_accuracy: int,
+    korean_fluency: int,
+    style_register: int,
+    overall_score: int,
+) -> dict[str, int]:
+    return {
+        "faithfulness": faithfulness,
+        "terminology_accuracy": terminology_accuracy,
+        "korean_fluency": korean_fluency,
+        "style_register": style_register,
+        "overall_score": overall_score,
+    }
+
+
+def metric_llm(example, pred, trace=None, evaluation: bool = False) -> float | dict[str, int]:
     """
     Optimizer용 metric 시그니처:
     - example.original_text: 원문
     - example.translated_text: 인간 번역문(정답)
     - pred.translated_text: 모델 번역문
     """
-    source_text = str(getattr(example, "original_text", ""))
-    reference_text = str(getattr(example, "translated_text", ""))
-    candidate_text = str(getattr(pred, "translated_text", ""))
-    cache_key = (source_text, reference_text, candidate_text)
-
-    if cache_key in _metric_cache:
-        return _metric_cache[cache_key]
-
     out = _judge(
-        source_text=source_text,
-        reference_text=reference_text,
-        candidate_text=candidate_text,
+        source_text=example.original_text,
+        reference_text=example.translated_text,
+        candidate_text=pred.translated_text,
     )
 
     faithfulness = _to_1to5_int(getattr(out, "faithfulness", None))
@@ -44,18 +51,18 @@ def metric_llm(example, pred, trace=None) -> float:
     style_register = _to_1to5_int(getattr(out, "style_register", None))
     overall_score = _to_1to5_int(getattr(out, "overall_score", None))
 
-    # 소수점 없이 1~5 정수 점수만 사용하기 위해 평균 후 반올림
-    score = round(
-        (
-            faithfulness
-            + terminology_accuracy
-            + korean_fluency
-            + style_register
-            + overall_score
-        )
-        / 5
+    evaluation_scores = _build_evaluation_scores(
+        faithfulness=faithfulness,
+        terminology_accuracy=terminology_accuracy,
+        korean_fluency=korean_fluency,
+        style_register=style_register,
+        overall_score=overall_score,
     )
 
-    final_score = float(max(1, min(5, score)))
-    _metric_cache[cache_key] = final_score
-    return final_score
+    if evaluation:
+        return evaluation_scores
+
+    # 소수점 없이 1~5 정수 점수만 사용하기 위해 평균 후 반올림
+    score = round(sum(evaluation_scores.values()) / 5)
+
+    return float(max(1, min(5, score)))
