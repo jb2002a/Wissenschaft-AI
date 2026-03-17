@@ -32,10 +32,10 @@ def compile_translation_with_miprov2(
     save_after_compile=False면 compile만 수행하고 저장하지 않는다.
     """
     get_lm()
-    if save_after_compile and not save_path.strip():
-        raise ValueError("save_after_compile=True이면 save_path를 함께 지정해야 합니다.")
 
-    trainset, valset = get_train_valset(train_ratio=train_ratio, seed=seed, shuffle=shuffle)
+    trainset, valset = get_train_valset(
+        train_ratio=train_ratio, seed=seed, shuffle=shuffle
+    )
 
     optimizer = dspy.MIPROv2(
         metric=metric_llm,
@@ -46,7 +46,11 @@ def compile_translation_with_miprov2(
     )
 
     # auto 설정 시 num_trials/num_candidates는 사용 불가(에러 방지)
-    compile_kwargs = {k: v for k, v in compile_kwargs.items() if k not in ("num_trials", "num_candidates")}
+    compile_kwargs = {
+        k: v
+        for k, v in compile_kwargs.items()
+        if k not in ("num_trials", "num_candidates")
+    }
 
     student = TranslateModule()
     optimized = optimizer.compile(
