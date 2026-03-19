@@ -10,7 +10,7 @@ from typing import Any, Optional
 import dspy
 
 from src.translation.data.dataset import get_train_valset
-from src.translation.metrics.translate_metric import metric_llm
+# from src.translation.metrics.translate_metric import metric_llm  # legacy LLM-judge metric (temporarily disabled)
 from src.translation.modules.translate import TranslateModule, get_lm
 
 
@@ -38,7 +38,7 @@ def compile_translation_with_miprov2(
     )
 
     optimizer = dspy.MIPROv2(
-        metric=metric_llm,
+        # metric=metric_llm,  # legacy LLM-judge metric (temporarily disabled)
         auto=auto,
         max_bootstrapped_demos=max_bootstrapped_demos,
         max_labeled_demos=max_labeled_demos,
