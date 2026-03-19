@@ -8,7 +8,7 @@ LLM judge 기반 metric 레거시 처리.
 
 # import dspy
 #
-# from src.translation.signatures.translation_judge import TranslationQualityJudge
+# from src.translation.signatures.translation_judge_legacy import TranslationQualityJudge
 #
 # _judge = dspy.Predict(TranslationQualityJudge)
 #

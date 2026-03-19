@@ -6,12 +6,12 @@ auto : medium으로 설정
 max_bootstrapped_demos를 4 -> 6
 max_labeled_demos를 4 -> 6
 의미: 탐색 공간/탐색 횟수 확대로 더 나은 프롬프트 조합 찾을 확률 증가
-src/translation/signatures/translation_judge.py
+src/translation/signatures/translation_judge_legacy.py
 
 단일 score 출력에서 다중 항목 출력으로 변경
 항목: faithfulness, terminology_accuracy, korean_fluency, style_register, overall_score
 의미: “왜 좋은 번역인지”를 분해해 평가 신호를 더 풍부하게 제공
-src/translation/metrics/translate_metric.py
+src/translation/metrics/translate_metric_legacy.py
 
 다중 judge 점수를 받아 최종 metric으로 합성하도록 변경
 현재는 요청대로 소수점 없이 1~5 정수 척도로 집계(평균 후 반올림)
