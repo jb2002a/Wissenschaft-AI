@@ -1,4 +1,3 @@
-
 """
 LLM judge 기반 metric 레거시 처리.
 
@@ -6,7 +5,7 @@ LLM judge 기반 metric 레거시 처리.
 
 # import dspy
 #
-# from src.translation.signatures.translation_judge_legacy import TranslationQualityJudge
+# from src.translation.signatures.legacy.translation_judge_legacy import TranslationQualityJudge
 #
 # _judge = dspy.Predict(TranslationQualityJudge)
 #
@@ -49,3 +48,4 @@ LLM judge 기반 metric 레거시 처리.
 #     )
 #     score = round(sum(parts) / 5)
 #     return float(max(1, min(5, score)))
+
