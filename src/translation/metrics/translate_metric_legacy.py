@@ -2,8 +2,6 @@
 """
 LLM judge 기반 metric 레거시 처리.
 
-요청대로 `metric_llm` 구현과 그에 필요한 Judge 시그니처 연결을
-주석 처리해 둡니다.
 """
 
 # import dspy

@@ -1,8 +1,6 @@
 """
 LLM judge 시그니처(레거시) 주석 처리.
 
-요청대로 TranslationQualityJudge 기반 시그니처를 사용하지 않도록
-주석 처리해 둡니다.
 """
 
 # import dspy
