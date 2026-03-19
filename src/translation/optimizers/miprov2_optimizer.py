@@ -10,15 +10,15 @@ from typing import Any, Optional
 import dspy
 
 from src.translation.data.dataset import get_train_valset
-# from src.translation.metrics.translate_metric_legacy import metric_llm  # legacy LLM-judge metric (temporarily disabled)
 from src.translation.modules.translate import TranslateModule, get_lm
+from src.translation.metrics.translate_metric_comet import metric_comet
 
 
 def compile_translation_with_miprov2(
     train_ratio: float = 0.5,
     seed: int = 42,
     shuffle: bool = True,
-    auto: str = "medium",
+    auto: str = "light",
     max_bootstrapped_demos: int = 6,
     max_labeled_demos: int = 6,
     num_threads: Optional[int] = 4,
@@ -38,19 +38,12 @@ def compile_translation_with_miprov2(
     )
 
     optimizer = dspy.MIPROv2(
-        # metric=metric_llm,  # legacy LLM-judge metric (temporarily disabled)
+        metric=metric_comet,
         auto=auto,
         max_bootstrapped_demos=max_bootstrapped_demos,
         max_labeled_demos=max_labeled_demos,
         num_threads=num_threads,
     )
-
-    # auto 설정 시 num_trials/num_candidates는 사용 불가(에러 방지)
-    compile_kwargs = {
-        k: v
-        for k, v in compile_kwargs.items()
-        if k not in ("num_trials", "num_candidates")
-    }
 
     student = TranslateModule()
     optimized = optimizer.compile(

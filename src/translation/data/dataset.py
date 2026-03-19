@@ -27,7 +27,7 @@ def _load_examples() -> List[dspy.Example]:
 
 
 def get_train_valset(
-    train_ratio: float = 0.8,
+    train_ratio: float = 0.5,
     seed: int = 42,
     shuffle: bool = True,
 ) -> Tuple[List[dspy.Example], List[dspy.Example]]:
