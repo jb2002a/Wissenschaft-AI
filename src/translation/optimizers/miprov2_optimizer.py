@@ -28,7 +28,6 @@ def compile_translation_with_miprov2(
 ) -> None:
     """
     LM 설정 후 merged_mapping 길이 기준 train_ratio로 분할한 데이터로 MIPROv2를 실행한다.
-    기본값은 compile 결과를 save_path에 저장하며, load/return 동작은 하지 않는다.
     save_after_compile=False면 compile만 수행하고 저장하지 않는다.
     """
     get_lm()

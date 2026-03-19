@@ -15,9 +15,11 @@ _COMET_MODEL = None
 
 
 def _get_comet_model():
+
+    #캐시 사용
     global _COMET_MODEL
     if _COMET_MODEL is None:
-        model_path = download_model("wmt22-comet-da")
+        model_path = download_model("Unbabel/wmt22-comet-da")
         _COMET_MODEL = load_from_checkpoint(model_path)
     return _COMET_MODEL
 
