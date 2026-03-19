@@ -13,7 +13,7 @@ _DEFAULT_MODEL = "anthropic/claude-sonnet-4-5"
 
 
 class TranslateModule(dspy.Module):
-    """독일어→한국어 번역 DSPy 모듈. MIPROv2.compile(student=...)에 전달용."""
+    """독일어→한국어 번역 DSPy 모듈."""
 
     def __init__(self):
         super().__init__()
@@ -33,10 +33,8 @@ def get_lm() -> None:
     dspy.configure(lm=lm)
 
 
-# translate와 show_last_promp는 optimizer 로직에서 사용하지 않음.
-
 def translate(original_text: str) -> str:
-    """프롬프트를 LM에 보내고 predict한 응답 문자열을 반환한다."""
+    """번역 실행 모듈, 기본 모델로 번역"""
     
     get_lm()
 
@@ -50,7 +48,7 @@ def translate_with_optimized(
     original_text: str,
     optimized_path: str = "artifacts/translation_optimized.json",
 ) -> str:
-    """optimized_path에 저장된 컴파일된 모듈을 로드한 뒤, 해당 모듈로 번역한다."""
+    """optimizer 모듈 로드 후 번역 진행"""
     get_lm()
     module = TranslateModule()
     module.load(optimized_path)

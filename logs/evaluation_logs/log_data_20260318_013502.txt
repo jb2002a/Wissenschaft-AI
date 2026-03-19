@@ -1,0 +1,72 @@
+[
+  {
+    "original_text": "Das Material dieser Wissenschaften bildet die geschichtlich-gesellschaftliche Wirklichkeit, soweit sie als geschichtliche Kunde im Bewußtsein der Menschheit sich erhalten hat, als gesellschaftliche, über den gegenwärtigen Zustand sich erstreckende Kunde der Wissenschaft zugänglich gemacht worden ist.",
+    "translated_text": "역사적·사회적 현실이 인류의 의식 속에 역사적 지식으로서 보존되어 온 한에서, 그리고 현재의 상태 너머로 뻗어나가는 사회적 지식으로서 학문에 의해 접근 가능하게 되는 한에서, 이 학문들의 자료는 역사적·사회적 현실을 형성한다.",
+    "ai_text": "이 학문들의 재료는 역사적-사회적 현실을 형성하는데, 이는 인류의 의식 속에 역사적 지식으로 보존되어 온 한에서, 그리고 현재의 상태를 넘어 확장되는 사회적 지식으로서 학문에 접근 가능하게 된 한에서 그러하다.",
+    "faithfulness": 4,
+    "terminology_accuracy": 4,
+    "korean_fluency": 4,
+    "style_register": 4,
+    "overall_score": 4
+  },
+  {
+    "original_text": "So unermeßlich dieses Material ist, so ist doch seine Unvollkommenheit augenscheinlich.",
+    "translated_text": "이 자료가 아무리 방대하더라도, 그것의 불완전성은 분명하다.",
+    "ai_text": "이 자료가 아무리 방대하다 할지라도, 그것의 불완전성은 명백하다.",
+    "faithfulness": 5,
+    "terminology_accuracy": 5,
+    "korean_fluency": 5,
+    "style_register": 5,
+    "overall_score": 5
+  },
+  {
+    "original_text": "Interessen, welche dem Bedürfnis der Wissenschaft keineswegs entsprechen, Bedingungen der Überlieferung, welche in keiner Beziehung zu diesem Bedürfnis stehen, haben den Bestand unserer geschichtlichen Kunde bestimmt.",
+    "translated_text": "학문적 필요와는 전혀 부합하지 않는 이해관계들, 그리고 그러한 필요와는 아무런 관련도 없는 전승의 조건들이 우리의 역사적 지식의 내용을 결정해 왔다.",
+    "ai_text": "학문의 필요에 결코 부합하지 않는 관심들, 이러한 필요와 아무런 관계도 없는 전승의 조건들이 우리의 역사적 지식의 현존 상태를 규정해 왔다.",
+    "faithfulness": 4,
+    "terminology_accuracy": 4,
+    "korean_fluency": 4,
+    "style_register": 5,
+    "overall_score": 4
+  },
+  {
+    "original_text": "Von der Zeit ab, in welcher, um das Lagerfeuer versammelt, Stammes- und Kriegsgenossen von den Taten ihrer Helden und dem göttlichen Ursprung ihres Stammes erzählten, hat das starke Interesse der Mitlebenden aus dem dunklen Flusse des gewöhnlichen menschlichen Lebens Tatsachen emporgehoben und bewahrt.",
+    "translated_text": "부족민과 전우들이, 모닥불 주위에 모여, 자신들의 영웅들의 행적과 자기 부족의 신성한 기원에 대해 이야기하던 시절 때부터, 함께 살아가는 동시대인들의 강렬한 관심은, 평범한 인간 삶의 어두운 흐름으로부터 특정한 사실들을 건져올려서 보존해 왔다.",
+    "ai_text": "모닥불 주위에 모여 부족원들과 전우들이 그들의 영웅들의 업적과 부족의 신적 기원에 관해 이야기하던 시대부터, 동시대인들의 강렬한 관심은 평범한 인간 삶의 어두운 흐름으로부터 사실들을 건져 올려 보존해 왔다.",
+    "faithfulness": 5,
+    "terminology_accuracy": 5,
+    "korean_fluency": 5,
+    "style_register": 5,
+    "overall_score": 5
+  },
+  {
+    "original_text": "Das Interesse einer späteren Zeit und geschichtliche Fügung haben darüber entschieden, was von diesen Tatsachen auf uns gelangen sollte.",
+    "translated_text": "그 이후 시대의 관심과 역사적 형성 과정이 이러한 사실들 가운데 무엇이 우리에게 전해질 것인지를 결정해 왔다.",
+    "ai_text": "후대의 관심과 역사적 운명이 이러한 사실들 중 무엇이 우리에게 전해져야 하는지를 결정했다.",
+    "faithfulness": 4,
+    "terminology_accuracy": 4,
+    "korean_fluency": 5,
+    "style_register": 5,
+    "overall_score": 4
+  },
+  {
+    "original_text": "Geschichtschreibung, als eine freie Kunst der Darstellung, faßt einen einzelnen Teil dieses unermeßlichen Ganzen zusammen, der des Interesses unter irgendeinem Gesichtspunkt wert erscheint.",
+    "translated_text": "역사 서술은, 표현의 자유로운 예술로서, 이 무한한 전체 가운데 그 어떤 관점에서 관심을 끌 만한 것으로 나타나는 개별적인 부분들을 하나로 묶어서 제시한다.",
+    "ai_text": "역사서술은 표현의 자유로운 예술로서, 어떤 관점에서든 관심을 가질 만한 가치가 있어 보이는 이 무한한 전체의 개별적 부분을 종합한다.",
+    "faithfulness": 4,
+    "terminology_accuracy": 4,
+    "korean_fluency": 4,
+    "style_register": 4,
+    "overall_score": 4
+  },
+  {
+    "original_text": "Dazu kommt: die heutige Gesellschaft lebt sozusagen auf den Schichten und Trümmern der Vergangenheit; die Niederschläge der Kulturarbeit in Sprache und Aberglaube, in Sitte und Recht, wie andererseits in materiellen Veränderungen, die über Aufzeichnungen hinausgehen, enthalten eine Überlieferung, welche in unschätzbarer Weise die Aufzeichnungen unterstützt. Auch über ihre Erhaltung hat doch die Hand der geschichtlichen Fügung entschieden.",
+    "translated_text": "여기에 더해, 오늘날의 사회는 말하자면 과거의 지층과 폐허 위에서 살아가고 있다; 언어와 미신, 관습과 법 속에 남아 있는 문화적 작업들이 남긴 흔적들, 그리고 다른 한편으로는 기록을 넘어서는 물질적 변화들 속에는, 기록들을 헤아릴 수 없을 만큼 가치 있게 보완해 주는 전승이 담겨 있다. 그리고 그러한 것들의 보존 여부 역시 역사적 형성의 손에 의해 결정되어 왔다.",
+    "ai_text": "여기에 덧붙여: 오늘날의 사회는 말하자면 과거의 층위들과 잔해들 위에서 살아가고 있다. 언어와 미신, 관습과 법에 나타난 문화 작업의 침전물들은, 다른 한편으로 기록을 넘어서는 물질적 변화들과 마찬가지로, 기록들을 헤아릴 수 없을 만큼 귀중한 방식으로 뒷받침하는 전승을 담고 있다. 이러한 전승의 보존에 대해서도 역사적 섭리의 손이 결정을 내린 것이다.",
+    "faithfulness": 5,
+    "terminology_accuracy": 5,
+    "korean_fluency": 5,
+    "style_register": 5,
+    "overall_score": 5
+  }
+]

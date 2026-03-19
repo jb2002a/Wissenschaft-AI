@@ -16,25 +16,10 @@ def _to_1to5_int(value, default: int = 1) -> int:
     return max(1, min(5, parsed))
 
 
-def _build_evaluation_scores(
-    faithfulness: int,
-    terminology_accuracy: int,
-    korean_fluency: int,
-    style_register: int,
-    overall_score: int,
-) -> dict[str, int]:
-    return {
-        "faithfulness": faithfulness,
-        "terminology_accuracy": terminology_accuracy,
-        "korean_fluency": korean_fluency,
-        "style_register": style_register,
-        "overall_score": overall_score,
-    }
-
-
-def metric_llm(example, pred, trace=None, evaluation: bool = False) -> float | dict[str, int]:
+def metric_llm(example, pred, trace=None) -> float:
     """
-    Optimizer용 metric 시그니처:
+    MIPRO 등 옵티마이저용 metric. Judge 5개 항목의 평균(반올림)을 1~5 스칼라로 반환.
+
     - example.original_text: 원문
     - example.translated_text: 인간 번역문(정답)
     - pred.translated_text: 모델 번역문
@@ -51,18 +36,12 @@ def metric_llm(example, pred, trace=None, evaluation: bool = False) -> float | d
     style_register = _to_1to5_int(getattr(out, "style_register", None))
     overall_score = _to_1to5_int(getattr(out, "overall_score", None))
 
-    evaluation_scores = _build_evaluation_scores(
-        faithfulness=faithfulness,
-        terminology_accuracy=terminology_accuracy,
-        korean_fluency=korean_fluency,
-        style_register=style_register,
-        overall_score=overall_score,
+    parts = (
+        faithfulness,
+        terminology_accuracy,
+        korean_fluency,
+        style_register,
+        overall_score,
     )
-
-    if evaluation:
-        return evaluation_scores
-
-    # 소수점 없이 1~5 정수 점수만 사용하기 위해 평균 후 반올림
-    score = round(sum(evaluation_scores.values()) / 5)
-
+    score = round(sum(parts) / 5)
     return float(max(1, min(5, score)))
