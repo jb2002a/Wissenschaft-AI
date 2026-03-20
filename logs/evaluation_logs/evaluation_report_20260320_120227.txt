@@ -1,0 +1,135 @@
+json_path: C:\Users\jb\Desktop\Git\Wissenschaft-AI\resources\test_dataset\test.json
+use_optimized: True
+using_artifact_path: artifacts/translation_optimized_regacy.json
+system_score: 0.887632
+num_segments: 7
+
+--- segment 0 ---
+xcomet_score: 0.798837
+german: Das Material dieser Wissenschaften bildet die geschichtlich-gesellschaftliche Wirklichkeit, soweit sie als geschichtliche Kunde im Bewußtsein der Menschheit sich erhalten hat, als gesellschaftliche, über den gegenwärtigen Zustand sich erstreckende Kunde der Wissenschaft zugänglich gemacht worden ist.
+reference_korean: 역사적·사회적 현실이 인류의 의식 속에 역사적 지식으로서 보존되어 온 한에서, 그리고 현재의 상태 너머로 뻗어나가는 사회적 지식으로서 학문에 의해 접근 가능하게 되는 한에서, 이 학문들의 자료는 역사적·사회적 현실을 형성한다.
+hypothesis_korean: 이러한 학문들의 소재를 이루는 것은 역사·사회적 현실이다. 이 현실은 역사적 지식으로서 인류의 의식 속에 보존되어 온 한에서, 그리고 현재 상태에 걸쳐 있는 사회적 지식으로서 학문에 접근 가능하게 된 한에서 그러하다.
+error_spans:
+[
+  {
+    "text": "현재 상태에 걸쳐 있는",
+    "confidence": 0.4129795432090759,
+    "severity": "major",
+    "start": 74,
+    "end": 87
+  },
+  {
+    "text": "에 접근",
+    "confidence": 0.3807823061943054,
+    "severity": "major",
+    "start": 100,
+    "end": 104
+  }
+]
+
+--- segment 1 ---
+xcomet_score: 0.994785
+german: So unermeßlich dieses Material ist, so ist doch seine Unvollkommenheit augenscheinlich.
+reference_korean: 이 자료가 아무리 방대하더라도, 그것의 불완전성은 분명하다.
+hypothesis_korean: 이 자료가 아무리 방대하다 할지라도, 그것의 불완전성은 명백하다.
+error_spans:
+[]
+
+--- segment 2 ---
+xcomet_score: 0.952357
+german: Interessen, welche dem Bedürfnis der Wissenschaft keineswegs entsprechen, Bedingungen der Überlieferung, welche in keiner Beziehung zu diesem Bedürfnis stehen, haben den Bestand unserer geschichtlichen Kunde bestimmt.
+reference_korean: 학문적 필요와는 전혀 부합하지 않는 이해관계들, 그리고 그러한 필요와는 아무런 관련도 없는 전승의 조건들이 우리의 역사적 지식의 내용을 결정해 왔다.
+hypothesis_korean: 학문의 필요에 결코 부합하지 않는 관심들, 그리고 이러한 필요와 아무런 관계도 없는 전승의 조건들이 우리의 역사적 지식의 현존 상태를 규정해 왔다.
+error_spans:
+[
+  {
+    "text": "관심",
+    "confidence": 0.37559598684310913,
+    "severity": "minor",
+    "start": 18,
+    "end": 21
+  },
+  {
+    "text": "현존 상태",
+    "confidence": 0.4049825966358185,
+    "severity": "minor",
+    "start": 67,
+    "end": 73
+  }
+]
+
+--- segment 3 ---
+xcomet_score: 0.922745
+german: Von der Zeit ab, in welcher, um das Lagerfeuer versammelt, Stammes- und Kriegsgenossen von den Taten ihrer Helden und dem göttlichen Ursprung ihres Stammes erzählten, hat das starke Interesse der Mitlebenden aus dem dunklen Flusse des gewöhnlichen menschlichen Lebens Tatsachen emporgehoben und bewahrt.
+reference_korean: 부족민과 전우들이, 모닥불 주위에 모여, 자신들의 영웅들의 행적과 자기 부족의 신성한 기원에 대해 이야기하던 시절 때부터, 함께 살아가는 동시대인들의 강렬한 관심은, 평범한 인간 삶의 어두운 흐름으로부터 특정한 사실들을 건져올려서 보존해 왔다.
+hypothesis_korean: 모닥불 주위에 모여 부족원들과 전우들이 자신들의 영웅들의 업적과 부족의 신적 기원에 관해 이야기하던 시대부터, 동시대인들의 강렬한 관심은 평범한 인간 삶의 어두운 흐름으로부터 사실들을 건져 올려 보존해 왔다.
+error_spans:
+[]
+
+--- segment 4 ---
+xcomet_score: 0.948953
+german: Das Interesse einer späteren Zeit und geschichtliche Fügung haben darüber entschieden, was von diesen Tatsachen auf uns gelangen sollte.
+reference_korean: 그 이후 시대의 관심과 역사적 형성 과정이 이러한 사실들 가운데 무엇이 우리에게 전해질 것인지를 결정해 왔다.
+hypothesis_korean: 후대의 관심과 역사적 운명이 이러한 사실들 중 무엇이 우리에게 전달되어야 하는지를 결정해왔다.
+error_spans:
+[
+  {
+    "text": "운",
+    "confidence": 0.3898897171020508,
+    "severity": "minor",
+    "start": 11,
+    "end": 13
+  }
+]
+
+--- segment 5 ---
+xcomet_score: 0.979754
+german: Geschichtschreibung, als eine freie Kunst der Darstellung, faßt einen einzelnen Teil dieses unermeßlichen Ganzen zusammen, der des Interesses unter irgendeinem Gesichtspunkt wert erscheint.
+reference_korean: 역사 서술은, 표현의 자유로운 예술로서, 이 무한한 전체 가운데 그 어떤 관점에서 관심을 끌 만한 것으로 나타나는 개별적인 부분들을 하나로 묶어서 제시한다.
+hypothesis_korean: 역사서술은 서술의 자유로운 예술로서, 어떤 관점에서든 관심을 가질 만한 가치가 있는 것으로 보이는 이 무한한 전체의 개별적 부분을 포착한다.
+error_spans:
+[]
+
+--- segment 6 ---
+xcomet_score: 0.615995
+german: Dazu kommt: die heutige Gesellschaft lebt sozusagen auf den Schichten und Trümmern der Vergangenheit; die Niederschläge der Kulturarbeit in Sprache und Aberglaube, in Sitte und Recht, wie andererseits in materiellen Veränderungen, die über Aufzeichnungen hinausgehen, enthalten eine Überlieferung, welche in unschätzbarer Weise die Aufzeichnungen unterstützt. Auch über ihre Erhaltung hat doch die Hand der geschichtlichen Fügung entschieden.
+reference_korean: 여기에 더해, 오늘날의 사회는 말하자면 과거의 지층과 폐허 위에서 살아가고 있다; 언어와 미신, 관습과 법 속에 남아 있는 문화적 작업들이 남긴 흔적들, 그리고 다른 한편으로는 기록을 넘어서는 물질적 변화들 속에는, 기록들을 헤아릴 수 없을 만큼 가치 있게 보완해 주는 전승이 담겨 있다. 그리고 그러한 것들의 보존 여부 역시 역사적 형성의 손에 의해 결정되어 왔다.
+hypothesis_korean: 여기에 덧붙여: 오늘날의 사회는 말하자면 과거의 층위들과 잔해들 위에서 살아가고 있다. 언어와 미신, 관습과 법에서의 문화 작업의 침전물들은, 다른 한편으로는 기록을 넘어서는 물질적 변화들 속에서, 기록들을 헤아릴 수 없을 만큼 귀중하게 뒷받침하는 전승을 담고 있다. 이러한 것들의 보존에 대해서도 역사적 섭리의 손이 결정을 내렸다.
+error_spans:
+[
+  {
+    "text": "위",
+    "confidence": 0.3632580041885376,
+    "severity": "major",
+    "start": 28,
+    "end": 29
+  },
+  {
+    "text": "잔",
+    "confidence": 0.33142828941345215,
+    "severity": "major",
+    "start": 31,
+    "end": 33
+  },
+  {
+    "text": "작업",
+    "confidence": 0.3600725829601288,
+    "severity": "major",
+    "start": 68,
+    "end": 71
+  },
+  {
+    "text": "침전물",
+    "confidence": 0.3986540734767914,
+    "severity": "major",
+    "start": 72,
+    "end": 76
+  },
+  {
+    "text": "섭리",
+    "confidence": 0.4051724672317505,
+    "severity": "major",
+    "start": 171,
+    "end": 173
+  }
+]

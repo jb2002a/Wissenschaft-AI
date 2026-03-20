@@ -18,6 +18,7 @@ def report_to_plain_text(report: TestJsonEvaluationReport) -> str:
     lines: list[str] = [
         f"json_path: {report.json_path}",
         f"use_optimized: {report.use_optimized}",
+        f"using_artifact_path: {report.using_artifact_path}",
         f"system_score: {report.system_score:.6f}",
         f"num_segments: {len(report.segments)}",
         "",

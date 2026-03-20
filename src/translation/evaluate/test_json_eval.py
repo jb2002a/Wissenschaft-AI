@@ -33,6 +33,7 @@ class TestJsonEvaluationReport:
     segments: List[SegmentEvalRow] = field(default_factory=list)
     json_path: Path = field(default_factory=lambda: _DEFAULT_TEST_JSON)
     use_optimized: bool = False
+    using_artifact_path: str = "default"
 
 
 def load_test_json(path: Optional[Path] = None) -> List[dict]:
@@ -102,7 +103,7 @@ def run_test_json_evaluation(
     json_path: Optional[Path] = None,
     *,
     use_optimized: bool = True,
-    optimized_path: str = "artifacts/translation_optimized.json",
+    optimized_path: str = "artifacts/translation_optimized_regacy.json",
     batch_size: int = 8,
     gpus: int = 0,
     model_name: str = _XCOMET_XL,
@@ -144,4 +145,5 @@ def run_test_json_evaluation(
         segments=segment_rows,
         json_path=path,
         use_optimized=use_optimized,
+        using_artifact_path=optimized_path,
     )
