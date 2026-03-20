@@ -24,11 +24,14 @@ def compile_translation_with_miprov2(
     num_threads: Optional[int] = 4,
     save_path: str = "artifacts/translation_optimized.json",
     save_after_compile: bool = True,
+    show_prompt_history: bool = True,
+    prompt_history_n: int = 5,
     **compile_kwargs: Any,
 ) -> None:
     """
     LM 설정 후 merged_mapping 길이 기준 train_ratio로 분할한 데이터로 MIPROv2를 실행한다.
     save_after_compile=False면 compile만 수행하고 저장하지 않는다.
+    show_prompt_history=True면 optimizer.compile()이 끝난 뒤 최근 프롬프트 히스토리를 콘솔에 출력한다.
     """
     get_lm()
 
@@ -51,6 +54,10 @@ def compile_translation_with_miprov2(
         valset=valset,
         **compile_kwargs,
     )
+
+    if show_prompt_history:
+        print(f"[MIPROv2] 최근 프롬프트 이력 (n={prompt_history_n})")
+        dspy.settings.lm.inspect_history(n=prompt_history_n)
 
     if save_after_compile:
         save_dir = os.path.dirname(save_path)
