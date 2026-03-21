@@ -79,27 +79,6 @@ def build_xcomet_samples(rows: List[dict]) -> List[dict]:
     ]
 
 
-def score_with_xcomet(
-    samples: List[dict],
-    *,
-    model_name: str = _XCOMET_XL,
-    batch_size: int = 8,
-    gpus: int = 0,
-):
-    """
-    XCOMET-XL(또는 동일 API의 다른 COMET 체크포인트)으로 점수 산출.
-
-    ``gpus=0``이면 CPU 추론.
-
-    ``unbabel-comet`` 패키지가 필요하며, 모듈 로드 시점이 아니라 이 함수 호출 시에만 임포트한다.
-    """
-    from comet import download_model, load_from_checkpoint
-
-    model_path = download_model(model_name)
-    model = load_from_checkpoint(model_path)
-    return model.predict(samples, batch_size=batch_size, gpus=gpus)
-
-
 def run_test_json_evaluation(
     json_path: Optional[Path] = None,
     *,
@@ -114,19 +93,24 @@ def run_test_json_evaluation(
     """
     path = json_path or _DEFAULT_TEST_JSON
     raw = load_test_json(path)
+    
+    # 해당 json 파일에 대해 번역 수행
     translated = translate_test_items(
         raw,
         use_optimized=use_optimized,
         optimized_path=optimized_path,
     )
+    # comet을 위한 dictionary 재구성
     samples = build_xcomet_samples(translated)
-    model_output = score_with_xcomet(
-        samples,
-        model_name=model_name,
-        batch_size=batch_size,
-        gpus=gpus,
-    )
 
+    # comet 모델로 점수 산출
+    from src.translation.evaluate.xcomet_modal_app import score_xcomet_remote
+    model_output = score_xcomet_remote.remote(
+    samples,
+    model_name=model_name,
+    batch_size=batch_size,
+    )
+    
     error_spans_list = model_output.metadata.error_spans
 
     segment_rows: List[SegmentEvalRow] = []

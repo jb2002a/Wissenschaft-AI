@@ -2,3 +2,4 @@ dspy
 pydantic
 python-dotenv
 unbabel-comet
+modal
