@@ -9,6 +9,7 @@ from typing import Any, List, Optional
 
 from src.translation.modules.translate import translate, translate_with_optimized
 
+
 _REPO_ROOT = Path(__file__).resolve().parents[3]
 _DEFAULT_TEST_JSON = _REPO_ROOT / "resources" / "test_dataset" / "test.json"
 _XCOMET_XL = "Unbabel/XCOMET-XL"

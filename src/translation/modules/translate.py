@@ -9,7 +9,6 @@ from src.translation.signatures.german_to_korean import GermanToKorean
 
 load_dotenv()
 
-_DEFAULT_MODEL = "anthropic/claude-sonnet-4-5"
 
 
 class TranslateModule(dspy.Module):
@@ -25,11 +24,11 @@ class TranslateModule(dspy.Module):
 
 
 def get_lm() -> None:
-    """DSPy LM을 로드하고 전역으로 설정한다. 기본: anthropic/claude-sonnet-4-5."""
-    api_key = os.getenv("ANTHROPIC_API_KEY")
+    """DSPy LM을 로드하고 전역으로 설정한다."""
+    api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
-        raise ValueError("ANTHROPIC_API_KEY가 설정되지 않았습니다.")
-    lm = dspy.LM(_DEFAULT_MODEL, api_key=api_key, temperature=0.0)
+        raise ValueError("API 키가 설정되지 않았습니다.")
+    lm = dspy.LM("gemini/gemini-2.5-pro", api_key=api_key, temperature=0.0)
     dspy.configure(lm=lm)
 
 

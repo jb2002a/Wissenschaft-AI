@@ -48,7 +48,7 @@ def _segment_to_lines(index: int, seg: SegmentEvalRow) -> list[str]:
 
 
 def main() -> None:
-    report = run_test_json_evaluation(optimized_path="artifacts/translation_optimized.json")
+    report = run_test_json_evaluation(optimized_path="artifacts/translation_optimized.json", gpus=1)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     out_path = (
         _REPO_ROOT / "logs" / "evaluation_logs" / f"evaluation_report_{timestamp}.txt"
