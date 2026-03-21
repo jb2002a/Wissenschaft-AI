@@ -1,0 +1,1143 @@
+json_path: C:\Users\jb\Desktop\Git\Wissenschaft-AI\resources\test_dataset\test.json
+use_optimized: True
+using_artifact_path: artifacts/translation_optimized.json
+system_score: 0.852360
+num_segments: 52
+
+--- segment 0 ---
+xcomet_score: 0.895070
+german: Das Material dieser Wissenschaften bildet die geschichtlich-gesellschaftliche Wirklichkeit, soweit sie als geschichtliche Kunde im Bewußtsein der Menschheit sich erhalten hat, als gesellschaftliche, über den gegenwärtigen Zustand sich erstreckende Kunde der Wissenschaft zugänglich gemacht worden ist.
+reference_korean: 역사적·사회적 현실이 인류의 의식 속에 역사적 지식으로서 보존되어 온 한에서, 그리고 현재의 상태 너머로 뻗어나가는 사회적 지식으로서 학문에 의해 접근 가능하게 되는 한에서, 이 학문들의 자료는 역사적·사회적 현실을 형성한다.
+hypothesis_korean: 이 학문들의 재료는 역사적-사회적 현실을 형성하는데, 이는 인류의 의식 속에 역사적 지식으로 보존되어 온 한에서, 그리고 현재의 상태를 넘어 확장되는 사회적 지식으로서 학문에 접근 가능하게 된 한에서 그러하다.
+error_spans:
+[
+  {
+    "text": "료",
+    "confidence": 0.36176493763923645,
+    "severity": "minor",
+    "start": 8,
+    "end": 9
+  },
+  {
+    "text": "문에 접근",
+    "confidence": 0.3709343373775482,
+    "severity": "minor",
+    "start": 95,
+    "end": 100
+  }
+]
+
+--- segment 1 ---
+xcomet_score: 0.994785
+german: So unermeßlich dieses Material ist, so ist doch seine Unvollkommenheit augenscheinlich.
+reference_korean: 이 자료가 아무리 방대하더라도, 그것의 불완전성은 분명하다.
+hypothesis_korean: 이 자료가 아무리 방대하다 할지라도, 그것의 불완전성은 명백하다.
+error_spans:
+[]
+
+--- segment 2 ---
+xcomet_score: 0.945675
+german: Interessen, welche dem Bedürfnis der Wissenschaft keineswegs entsprechen, Bedingungen der Überlieferung, welche in keiner Beziehung zu diesem Bedürfnis stehen, haben den Bestand unserer geschichtlichen Kunde bestimmt.
+reference_korean: 학문적 필요와는 전혀 부합하지 않는 이해관계들, 그리고 그러한 필요와는 아무런 관련도 없는 전승의 조건들이 우리의 역사적 지식의 내용을 결정해 왔다.
+hypothesis_korean: 학문의 필요에 결코 부합하지 않는 관심들, 이러한 필요와 아무런 관계도 없는 전승의 조건들이 우리의 역사적 지식의 현존 상태를 규정해 왔다.
+error_spans:
+[
+  {
+    "text": "관심",
+    "confidence": 0.3880133330821991,
+    "severity": "minor",
+    "start": 18,
+    "end": 21
+  },
+  {
+    "text": "현존 상태",
+    "confidence": 0.40770649909973145,
+    "severity": "minor",
+    "start": 63,
+    "end": 69
+  }
+]
+
+--- segment 3 ---
+xcomet_score: 0.921362
+german: Von der Zeit ab, in welcher, um das Lagerfeuer versammelt, Stammes- und Kriegsgenossen von den Taten ihrer Helden und dem göttlichen Ursprung ihres Stammes erzählten, hat das starke Interesse der Mitlebenden aus dem dunklen Flusse des gewöhnlichen menschlichen Lebens Tatsachen emporgehoben und bewahrt.
+reference_korean: 부족민과 전우들이, 모닥불 주위에 모여, 자신들의 영웅들의 행적과 자기 부족의 신성한 기원에 대해 이야기하던 시절 때부터, 함께 살아가는 동시대인들의 강렬한 관심은, 평범한 인간 삶의 어두운 흐름으로부터 특정한 사실들을 건져올려서 보존해 왔다.
+hypothesis_korean: 모닥불 주위에 모여 부족원들과 전우들이 그들의 영웅들의 업적과 부족의 신적 기원에 관해 이야기하던 시대부터, 동시대인들의 강렬한 관심은 평범한 인간 삶의 어두운 흐름으로부터 사실들을 건져 올려 보존해 왔다.
+error_spans:
+[]
+
+--- segment 4 ---
+xcomet_score: 0.963649
+german: Das Interesse einer späteren Zeit und geschichtliche Fügung haben darüber entschieden, was von diesen Tatsachen auf uns gelangen sollte.
+reference_korean: 그 이후 시대의 관심과 역사적 형성 과정이 이러한 사실들 가운데 무엇이 우리에게 전해질 것인지를 결정해 왔다.
+hypothesis_korean: 후대의 관심과 역사적 운명이 이러한 사실들 중 무엇이 우리에게 전해져야 하는지를 결정했다.
+error_spans:
+[
+  {
+    "text": "운",
+    "confidence": 0.3956694006919861,
+    "severity": "minor",
+    "start": 11,
+    "end": 13
+  }
+]
+
+--- segment 5 ---
+xcomet_score: 0.974143
+german: Geschichtschreibung, als eine freie Kunst der Darstellung, faßt einen einzelnen Teil dieses unermeßlichen Ganzen zusammen, der des Interesses unter irgendeinem Gesichtspunkt wert erscheint.
+reference_korean: 역사 서술은, 표현의 자유로운 예술로서, 이 무한한 전체 가운데 그 어떤 관점에서 관심을 끌 만한 것으로 나타나는 개별적인 부분들을 하나로 묶어서 제시한다.
+hypothesis_korean: 역사서술은 표현의 자유로운 예술로서, 어떤 관점에서든 관심을 가질 만한 가치가 있어 보이는 이 무한한 전체의 개별적 부분을 종합한다.
+error_spans:
+[
+  {
+    "text": "종합",
+    "confidence": 0.40641316771507263,
+    "severity": "minor",
+    "start": 68,
+    "end": 71
+  }
+]
+
+--- segment 6 ---
+xcomet_score: 0.705699
+german: Dazu kommt: die heutige Gesellschaft lebt sozusagen auf den Schichten und Trümmern der Vergangenheit; die Niederschläge der Kulturarbeit in Sprache und Aberglaube, in Sitte und Recht, wie andererseits in materiellen Veränderungen, die über Aufzeichnungen hinausgehen, enthalten eine Überlieferung, welche in unschätzbarer Weise die Aufzeichnungen unterstützt. Auch über ihre Erhaltung hat doch die Hand der geschichtlichen Fügung entschieden.
+reference_korean: 여기에 더해, 오늘날의 사회는 말하자면 과거의 지층과 폐허 위에서 살아가고 있다; 언어와 미신, 관습과 법 속에 남아 있는 문화적 작업들이 남긴 흔적들, 그리고 다른 한편으로는 기록을 넘어서는 물질적 변화들 속에는, 기록들을 헤아릴 수 없을 만큼 가치 있게 보완해 주는 전승이 담겨 있다. 그리고 그러한 것들의 보존 여부 역시 역사적 형성의 손에 의해 결정되어 왔다.
+hypothesis_korean: 여기에 덧붙여: 오늘날의 사회는 말하자면 과거의 층위들과 잔해들 위에서 살아가고 있다. 언어와 미신, 관습과 법에 나타난 문화 작업의 침전물들은, 다른 한편으로 기록을 넘어서는 물질적 변화들과 마찬가지로, 기록들을 헤아릴 수 없을 만큼 귀중한 방식으로 뒷받침하는 전승을 담고 있다. 이러한 전승의 보존에 대해서도 역사적 섭리의 손이 결정을 내린 것이다.
+error_spans:
+[
+  {
+    "text": "위",
+    "confidence": 0.3410446047782898,
+    "severity": "major",
+    "start": 28,
+    "end": 29
+  },
+  {
+    "text": "작업",
+    "confidence": 0.34642088413238525,
+    "severity": "minor",
+    "start": 70,
+    "end": 73
+  },
+  {
+    "text": "침전물",
+    "confidence": 0.37526729702949524,
+    "severity": "major",
+    "start": 74,
+    "end": 78
+  },
+  {
+    "text": "섭리",
+    "confidence": 0.38951557874679565,
+    "severity": "major",
+    "start": 179,
+    "end": 181
+  }
+]
+
+--- segment 7 ---
+xcomet_score: 0.739862
+german: Tatsachen des Geistes sind die oberste Grenze der Tatsachen der Natur, die Tatsachen der Natur bilden die unteren Bedingungen des geistigen Lebens.
+reference_korean: 정신적 사실들은 자연적 사실들이 도달할 수 있는 최상위의 경계이며, 반대로 자연적 사실들은 정신적 삶의 하위 조건들을 형성한다.
+hypothesis_korean: 정신의 사실들은 자연의 사실들의 최상위 한계이며, 자연의 사실들은 정신적 삶의 하위 조건들을 형성한다.
+error_spans:
+[
+  {
+    "text": "정신의 사실",
+    "confidence": 0.453948974609375,
+    "severity": "major",
+    "start": 0,
+    "end": 6
+  },
+  {
+    "text": "자연의 사실",
+    "confidence": 0.3832797110080719,
+    "severity": "major",
+    "start": 8,
+    "end": 15
+  },
+  {
+    "text": "한계",
+    "confidence": 0.3889288902282715,
+    "severity": "major",
+    "start": 21,
+    "end": 24
+  },
+  {
+    "text": "자연의",
+    "confidence": 0.3466888666152954,
+    "severity": "minor",
+    "start": 27,
+    "end": 31
+  }
+]
+
+--- segment 8 ---
+xcomet_score: 0.678787
+german: Eben weil das Reich der Personen oder die menschliche Gesellschaft und Geschichte die höchste unter den Erscheinungen der irdischen Erfahrungswelt ist, bedarf seine Erkenntnis an unzähligen Punkten die des Systems von Voraussetzungen, welche für seine Entwicklung in dem Naturganzen gelegen sind.
+reference_korean: 인간들의 세계 혹은 인간 사회와 역사는 지상적 경험 세계의 현상들 가운데서 가장 높은 단계에 놓여 있기 때문에, 그에 대한 인식은 수없이 많은 지점에서 자연 전체 속에 놓여 있는 발전의 전제 조건들을 이루는 체계들에 대한 인식을 필요로 한다.
+hypothesis_korean: 인격들의 왕국 또는 인간 사회와 역사가 지상의 경험세계에 나타나는 현상들 중 가장 고차원적인 것이기 때문에, 그것에 대한 인식은 무수히 많은 지점에서 자연 전체 안에 그것의 발전을 위해 놓여 있는 전제들의 체계에 대한 인식을 필요로 한다.
+error_spans:
+[
+  {
+    "text": "인격들의 왕국",
+    "confidence": 0.3819422423839569,
+    "severity": "major",
+    "start": 0,
+    "end": 7
+  },
+  {
+    "text": "안에",
+    "confidence": 0.32667335867881775,
+    "severity": "minor",
+    "start": 89,
+    "end": 92
+  },
+  {
+    "text": "위해",
+    "confidence": 0.37243425846099854,
+    "severity": "major",
+    "start": 100,
+    "end": 103
+  },
+  {
+    "text": "놓",
+    "confidence": 0.3664802312850952,
+    "severity": "major",
+    "start": 104,
+    "end": 105
+  },
+  {
+    "text": "전제들의",
+    "confidence": 0.35426685214042664,
+    "severity": "major",
+    "start": 109,
+    "end": 114
+  }
+]
+
+--- segment 9 ---
+xcomet_score: 0.752789
+german: Und zwar ist der Mensch, gemäß seiner so dargelegten Stellung im kausalen Zusammenhang der Natur, von dieser in einer zwiefachen Beziehung bedingt.
+reference_korean: 앞서 기술된 바와 같이, 자연의 인과적 연관 속에서 차지하는 위치에 따라 인간은 자연에 의해 이중적인 방식으로 조건 지어져 있다.
+hypothesis_korean: 그리고 인간은 이렇게 제시된 자연의 인과적 연관 속에서의 자신의 위치에 따라, 자연으로부터 이중적 관계에서 규정된다.
+error_spans:
+[
+  {
+    "text": "이렇게 제시",
+    "confidence": 0.381994366645813,
+    "severity": "major",
+    "start": 7,
+    "end": 14
+  },
+  {
+    "text": "으로부터",
+    "confidence": 0.42423927783966064,
+    "severity": "major",
+    "start": 46,
+    "end": 50
+  },
+  {
+    "text": "중적 관계에서 규정된다",
+    "confidence": 0.44497284293174744,
+    "severity": "major",
+    "start": 52,
+    "end": 64
+  }
+]
+
+--- segment 10 ---
+xcomet_score: 0.866127
+german: Die psycho-physische Einheit, so sahen wir, empfängt, vermittelt durch das Nervensystem, beständig Einwirkungen aus dem allgemeinen Naturlauf und sie wirkt wieder auf ihn zurück.
+reference_korean: 우리가 보았듯이, 심리-생리적 생명 통일체는 신경계를 매개로 하여 일반적인 자연 과정으로부터 끊임없이 영향을 받으며, 동시에 그 과정에 다시 영향을 미친다.
+hypothesis_korean: 우리가 살펴본 바와 같이, 심리-물리적 통일체는 신경계를 매개로 하여 일반적인 자연의 흐름으로부터 끊임없이 영향을 받으며, 또한 그것에 다시 작용을 미친다.
+error_spans:
+[
+  {
+    "text": "통일",
+    "confidence": 0.34690654277801514,
+    "severity": "minor",
+    "start": 21,
+    "end": 24
+  },
+  {
+    "text": "그것에 다시 작용을 미",
+    "confidence": 0.430779367685318,
+    "severity": "major",
+    "start": 71,
+    "end": 84
+  }
+]
+
+--- segment 11 ---
+xcomet_score: 0.975199
+german: Nun liegt es aber in ihrer Natur, daß die Wirkungen, welche von ihr ausgehen, vornehmlich als ein Handeln auftreten, welches von Zwecken geleitet wird.
+reference_korean: 그런데 이 통일체의 본성상, 그로부터 나오는 작용들은 주로 목적에 의해 인도되는 행위로 나타난다.
+hypothesis_korean: 그런데 그 본성상, 그것으로부터 나오는 작용들은 주로 목적에 의해 인도되는 행위로 나타난다.
+error_spans:
+[
+  {
+    "text": "그것",
+    "confidence": 0.39375707507133484,
+    "severity": "minor",
+    "start": 10,
+    "end": 13
+  }
+]
+
+--- segment 12 ---
+xcomet_score: 0.570938
+german: Für diese psycho-physische Einheit kann also einerseits der Naturlauf und seine Beschaffenheit in bezug auf die Gestaltung der Zwecke selber leitend sein, andererseits ist er für dieselbe als ein System von Mitteln zur Erreichung dieser Zwecke mitbestimmend.
+reference_korean: 따라서 이 심리-생리적 생명 통일체에게 자연 과정과 그 성질은 한편으로는 목적 자체를 설정하는 데 길잡이가 되며, 다른 한편으로는 그 목적을 달성하기 위한 수단들의 체계로서 작용하면서 목적 달성에 함께 참여하는 역할을 한다.
+hypothesis_korean: 따라서 이러한 심리-물리적 통일체에 있어서 한편으로는 자연의 진행과 그 성질이 목적들 자체의 형성과 관련하여 지도적일 수 있으며, 다른 한편으로는 자연의 진행이 이러한 목적들의 달성을 위한 수단의 체계로서 그 통일체를 공동으로 규정한다.
+error_spans:
+[
+  {
+    "text": "물",
+    "confidence": 0.42345130443573,
+    "severity": "major",
+    "start": 11,
+    "end": 12
+  },
+  {
+    "text": "통일",
+    "confidence": 0.3918345868587494,
+    "severity": "major",
+    "start": 14,
+    "end": 17
+  },
+  {
+    "text": "진행",
+    "confidence": 0.4283792972564697,
+    "severity": "major",
+    "start": 33,
+    "end": 36
+  },
+  {
+    "text": "들",
+    "confidence": 0.45376962423324585,
+    "severity": "major",
+    "start": 46,
+    "end": 47
+  },
+  {
+    "text": "지도",
+    "confidence": 0.4586740732192993,
+    "severity": "major",
+    "start": 60,
+    "end": 63
+  },
+  {
+    "text": "일",
+    "confidence": 0.4079705774784088,
+    "severity": "major",
+    "start": 64,
+    "end": 65
+  },
+  {
+    "text": "진행",
+    "confidence": 0.4473652243614197,
+    "severity": "major",
+    "start": 85,
+    "end": 88
+  },
+  {
+    "text": "로서 그 통일체를 공동으로 규정한다",
+    "confidence": 0.4801280200481415,
+    "severity": "major",
+    "start": 112,
+    "end": 131
+  }
+]
+
+--- segment 13 ---
+xcomet_score: 0.609570
+german: Und so sind wir selbst da, wo wir wollen, wo wir auf die Natur wirken, eben weil wir nicht blinde Kräfte sind, sondern Willen, welche ihre Zwecke überlegend feststellen, von dem Naturzusammenhang abhängig.
+reference_korean: 이처럼 우리가 의지를 일으키고, 자연에 작용력을 행사하고 하는 바로 그 지점에서조차, 우리는 맹목적인 힘인 것이 아니라, 우리 자신의 목적을 숙고하여 설정하는 의지이기 때문에, 우리는 자연 연관에 의존하게 된다.
+hypothesis_korean: 그리하여 우리가 의욕하는 곳에서, 우리가 자연에 작용하는 곳에서조차, 우리는 맹목적인 힘이 아니라 자신의 목적을 숙고하여 정립하는 의지이기 때문에, 바로 그렇기에 자연의 연관에 의존하고 있는 것이다.
+error_spans:
+[
+  {
+    "text": "의욕하는",
+    "confidence": 0.4208254814147949,
+    "severity": "major",
+    "start": 8,
+    "end": 13
+  },
+  {
+    "text": "립",
+    "confidence": 0.37047260999679565,
+    "severity": "major",
+    "start": 69,
+    "end": 70
+  },
+  {
+    "text": "기에",
+    "confidence": 0.36287084221839905,
+    "severity": "major",
+    "start": 88,
+    "end": 90
+  },
+  {
+    "text": "의 연관",
+    "confidence": 0.4166733920574188,
+    "severity": "major",
+    "start": 93,
+    "end": 97
+  },
+  {
+    "text": "하고",
+    "confidence": 0.39808255434036255,
+    "severity": "major",
+    "start": 101,
+    "end": 103
+  }
+]
+
+--- segment 14 ---
+xcomet_score: 0.959471
+german: Demnach befinden sich die psycho-physischen Einheiten in einer doppelten Abhängigkeit dem Naturlauf gegenüber.
+reference_korean: 이에 따라 심리-생리적 생명 통일체들은 자연 과정에 대해 이중적인 의존 관계에 놓이게 된다.
+hypothesis_korean: 따라서 심리-물리적 단위들은 자연의 진행 과정에 대해 이중적 의존성 속에 놓여 있다.
+error_spans:
+[
+  {
+    "text": "진행",
+    "confidence": 0.4014257788658142,
+    "severity": "minor",
+    "start": 19,
+    "end": 22
+  }
+]
+
+--- segment 15 ---
+xcomet_score: 0.717867
+german: Dieser bedingt einerseits von der Stellung der Erde im kosmischen Ganzen ab als ein System von Ursachen die gesellschaftlich-geschichtliche Wirklichkeit, und das große Problem des Verhältnisses von Naturzusammenhang und Freiheit in dieser Wirklichkeit zerlegt sich für den empirischen Forscher in unzählige Einzelfragen, welche das Verhältnis zwischen Tatsachen des Geistes und Einwirkungen der Natur betreffen.
+reference_korean: 자연 과정은 한편으로는, 우주 전체 속의 지구에서 차지하고 있는 위치에서 시작해 나와서, 그 자신 원인들의 체계로서 사회·역사적 현실을 조건짓는데, 이 사회·역사적 현실 속에서 자연 과정과 자유 간의 관계라는 거대한 문제는 경험적 연구자에게서 무수한 개별적인 질문들로 분해되기에 이른다. 이러한 질문들은 정신적 사실들과 자연이 일으키는 영향들 간의 관계를 다룬다.
+hypothesis_korean: 이것은 한편으로 우주적 전체 속에서 지구의 위치로부터 원인들의 체계로서 사회적-역사적 실재를 조건짓는데, 이 실재 안에서 자연적 연관과 자유의 관계라는 거대한 문제는 경험적 연구자에게 있어서 정신의 사실들과 자연의 작용들 사이의 관계를 다루는 무수히 많은 개별 질문들로 분해된다.
+error_spans:
+[
+  {
+    "text": "적 전체",
+    "confidence": 0.3667762577533722,
+    "severity": "major",
+    "start": 11,
+    "end": 15
+  },
+  {
+    "text": "로부터 원인",
+    "confidence": 0.3771060109138489,
+    "severity": "major",
+    "start": 26,
+    "end": 32
+  },
+  {
+    "text": "연관",
+    "confidence": 0.39185360074043274,
+    "severity": "major",
+    "start": 71,
+    "end": 74
+  }
+]
+
+--- segment 16 ---
+xcomet_score: 0.695120
+german: Andererseits aber entspringen aus den Zwecken dieses Personenreiches Rückwirkungen auf die Natur, auf die Erde, welche der Mensch in diesem Sinne als sein Wohnhaus betrachtet, in dem sich einzurichten er tätig ist, und auch diese Rückwirkungen sind an die Benutzung des naturgesetzlichen Zusammenhangs gebunden.
+reference_korean: 그러나 다른 한편, 이 인간들의 세계에서 설정되는 목적들로부터 자연 및 지구에 대한 역작용들이 발생한다. 인간은 이러한 의미에서 자연, 곧 지구를 자신의 거처지로 여기며, 그 안에서 삶의 터전을 마련하는 활동을 수행하고, 이러한 역작용들 역시 자연 법칙적 연관을 이용하는 방식과 결부된다.
+hypothesis_korean: 그러나 다른 한편으로 이러한 인격들의 왕국의 목적들로부터 자연에 대한, 즉 대지에 대한 역작용들이 발생한다. 인간은 이러한 의미에서 대지를 자신의 거처로 간주하며, 그 안에서 자신을 정착시키고자 활동한다. 그리고 이러한 역작용들 역시 자연법칙적 연관의 활용에 구속되어 있다.
+error_spans:
+[
+  {
+    "text": "인격들의 왕국",
+    "confidence": 0.4603258967399597,
+    "severity": "major",
+    "start": 15,
+    "end": 23
+  },
+  {
+    "text": "자신",
+    "confidence": 0.3707426190376282,
+    "severity": "major",
+    "start": 97,
+    "end": 100
+  },
+  {
+    "text": "착시키고",
+    "confidence": 0.39985841512680054,
+    "severity": "major",
+    "start": 103,
+    "end": 107
+  },
+  {
+    "text": "활용",
+    "confidence": 0.3638819754123688,
+    "severity": "major",
+    "start": 140,
+    "end": 143
+  }
+]
+
+--- segment 17 ---
+xcomet_score: 0.939588
+german: Alle Zwecke liegen dem Menschen ausschließlich innerhalb des geistigen Vorgangs selber, da ja nur in diesem etwas für ihn da ist; aber der Zweck sucht seine Mittel in dem Zusammenhang der Natur.
+reference_korean: 인간에게 모든 목적은 오로지 정신적 과정 내부에만 존재한다. 왜냐하면 인간에게 무엇인가가 존재하는 것은 오로지 그러한 과정 내부에서 가능하기 때문이다. 그러나 목적은 그것을 실현할 수단을 자연 연관 속에서 찾는다.
+hypothesis_korean: 모든 목적은 인간에게 오직 정신적 과정 내부에만 존재한다. 왜냐하면 오직 이 과정 안에서만 무언가가 인간에게 현존하기 때문이다. 그러나 목적은 자연의 연관 속에서 자신의 수단을 찾는다.
+error_spans:
+[
+  {
+    "text": "현존",
+    "confidence": 0.3716161847114563,
+    "severity": "minor",
+    "start": 60,
+    "end": 63
+  }
+]
+
+--- segment 18 ---
+xcomet_score: 0.707965
+german: Wie unscheinbar ist oft die Veränderung, welche die schöpferische Macht des Geistes in der Außenwelt hervorgebracht hat: und doch ruht in dieser allein die Vermittlung, durch welche der so geschaffene Wert auch für andere da ist.
+reference_korean: 정신의 창조적 힘이 외부 세계에 가져온 변화는 종종 지극히 미미해 보인다. 그럼에도 바로 그러한 변화를 매개로 해서만 그런 식으로 창출된 가치가 타인에게도 유관하게 된다.
+hypothesis_korean: 정신의 창조적 힘이 외부 세계에서 불러일으킨 변화는 얼마나 미미해 보이는가. 그러나 바로 이 변화 속에만 매개가 존재하며, 이 매개를 통해서 그렇게 창조된 가치가 타자들에게도 현존하게 되는 것이다.
+error_spans:
+[
+  {
+    "text": "속에만 매개가 존재",
+    "confidence": 0.4933978021144867,
+    "severity": "major",
+    "start": 54,
+    "end": 65
+  },
+  {
+    "text": "타자들에게",
+    "confidence": 0.43556180596351624,
+    "severity": "major",
+    "start": 90,
+    "end": 96
+  },
+  {
+    "text": "현존",
+    "confidence": 0.5254077911376953,
+    "severity": "major",
+    "start": 97,
+    "end": 100
+  }
+]
+
+--- segment 19 ---
+xcomet_score: 0.922437
+german: So sind die wenigen Blätter, welche, als ein materieller Rückstand tiefster Gedankenarbeit der Alten in der Richtung der Annahme einer Bewegung der Erde, in die Hand des Kopernikus kamen, der Ausgangspunkt einer Revolution in unserer Weltansicht geworden.
+reference_korean: 고대인들이 지동설을 가정하는 방향에서 전개했던 매우 심오한 사유의 결과물을 물질적 잔여물의 형태로 남겼던 불과 몇 장도 되지 않는 서류들이 코페르니쿠스의 손에 들어가 그것이 우리 세계관의 혁명을 일으키는 출발점이 되었던 것처럼 말이다.
+hypothesis_korean: 이처럼 지구의 운동을 가정하는 방향으로 고대인들이 행한 가장 깊은 사유 작업의 물질적 잔재로서 코페르니쿠스의 손에 들어온 몇 장의 문서는, 우리의 세계관에 있어서 하나의 혁명의 출발점이 되었다.
+error_spans:
+[
+  {
+    "text": "사유 작업",
+    "confidence": 0.39886027574539185,
+    "severity": "minor",
+    "start": 36,
+    "end": 42
+  }
+]
+
+--- segment 20 ---
+xcomet_score: 0.982343
+german: An diesem Punkte kann eingesehen werden, wie relativ die Abgrenzung dieser beiden Klassen von Wissenschaften voneinander ist.
+reference_korean: 바로 이 지점에서 이 두 학문 범주들 간의 구획이 얼마나 상대적인가를 이해할 수 있다.
+hypothesis_korean: 이 지점에서 이 두 학문 부류가 서로 구분되는 경계가 얼마나 상대적인지를 알 수 있다.
+error_spans:
+[
+  {
+    "text": "부",
+    "confidence": 0.39561063051223755,
+    "severity": "minor",
+    "start": 13,
+    "end": 15
+  }
+]
+
+--- segment 21 ---
+xcomet_score: 0.986513
+german: Streitigkeiten, wie sie über die Stellung der allgemeinen Sprachwissenschaft geführt wurden, sind unfruchtbar.
+reference_korean: 일반 언어학의 지위 문제를 두고 벌어졌던 것과 같은 논쟁들은 비생산적일 뿐이다.
+hypothesis_korean: 일반 언어학의 위상을 둘러싸고 벌어진 논쟁들은 생산적이지 못하다.
+error_spans:
+[]
+
+--- segment 22 ---
+xcomet_score: 0.853350
+german: An den beiden Übergangsstellen, welche von dem Studium der Natur zu dem des Geistigen führen, an den Punkten, an welchen der Naturzusammenhang auf die Entwicklung des Geistigen einwirkt, und an den andern Punkten, an welchen derselbe von dem Geistigen Einwirkung empfängt oder auch die Durchgangsstelle für die Einwirkung auf anderes Geistige bildet, vermischen sich überall Erkenntnisse beider Klassen.
+reference_korean: 자연에 대한 연구에서 정신에 대한 연구로 이행하는 두 개의 전이 지점들, 즉 자연 연관이 정신적인 것의 발달에 영향을 미치는 지점, 그와는 반대로 자연 연관이 정신적인 것으로부터 영향을 받거나, 혹은 한 정신이 다른 정신에 영향을 미치기 위한 통로가 되는 지점들에서는, 두 학문 범주들의 인식들이 도처에서 서로 뒤섞이기 마련이다.
+hypothesis_korean: 자연 연구에서 정신적인 것의 연구로 이행하는 두 전환점, 즉 자연적 연관이 정신적인 것의 발전에 작용하는 지점들과, 자연적 연관이 정신적인 것으로부터 영향을 받거나 또는 다른 정신적인 것에 대한 영향의 통로를 형성하는 다른 지점들에서, 양 부류의 인식들이 도처에서 뒤섞인다.
+error_spans:
+[
+  {
+    "text": "부",
+    "confidence": 0.38593488931655884,
+    "severity": "minor",
+    "start": 133,
+    "end": 135
+  }
+]
+
+--- segment 23 ---
+xcomet_score: 0.966726
+german: Erkenntnisse der Naturwissenschaften vermischen sich mit denen der Geisteswissenschaften.
+reference_korean: 즉, 자연과학의 인식들이 정신과학의 인식들과 서로 뒤섞이기 미련이다.
+hypothesis_korean: 자연과학의 인식들은 정신과학의 인식들과 뒤섞인다.
+error_spans:
+[]
+
+--- segment 24 ---
+xcomet_score: 0.947430
+german: Und zwar verwebt sich in diesem Zusammenhang, gemäß der zwiefachen Beziehung, in welcher der Naturlauf das geistige Leben bedingt, die Erkenntnis der bildenden Einwirkung der Natur häufig mit der Feststellung des Einflusses, welchen dieselbe als Material des Handelns ausübt.
+reference_korean: 특히 이러한 연관 속에서는, 자연 과정이 정신적 삶을 조건지우는 이중적인 관계에 따라, 자연의 정신 형성적인 작용에 대해 인식하는 것은 행위의 재료(수단)로서의 자연이 행사하는 영향에 대해 규정하는 일과 빈번하게 뒤얽힌다.
+hypothesis_korean: 그리고 이러한 맥락에서, 자연의 과정이 정신적 삶을 조건 짓는 이중적 관계에 따라, 자연의 형성적 작용에 대한 인식은 자연이 행위의 재료로서 행사하는 영향력의 확인과 빈번하게 얽혀 있다.
+error_spans:
+[]
+
+--- segment 25 ---
+xcomet_score: 0.945889
+german: So wird aus der Erkenntnis der Naturgesetze der Tonbildung ein wichtiger Teil der Grammatik und der musikalischen Theorie abgeleitet, und wiederum ist das Genie der Sprache oder Musik an diese Naturgesetze gebunden, und das Studium seiner Leistungen ist daher bedingt durch das Verständnis dieser Abhängigkeit...
+reference_korean: 예를 들어, 소리 형성의 자연 법칙들에 대한 인식으로부터 문법과 음악 이론의 중요한 부분이 도출되며, 그리고 또 언어적 천재성이나 음악적 천재성 역시 이러한 자연 법칙들에 연관되어 있으므로, 그러한 성취들에 대한 연구는 이러한 의존 관계에 대한 이해에 의해 조건 지어지게 된다.
+hypothesis_korean: 이처럼 음 형성의 자연법칙에 대한 인식으로부터 문법과 음악 이론의 중요한 부분이 도출되며, 또한 언어나 음악의 천재성은 이러한 자연법칙에 구속되어 있고, 따라서 그 성과에 대한 연구는 이러한 의존성에 대한 이해를 전제로 한다...
+error_spans:
+[
+  {
+    "text": "음",
+    "confidence": 0.3882293701171875,
+    "severity": "minor",
+    "start": 3,
+    "end": 5
+  }
+]
+
+--- segment 26 ---
+xcomet_score: 0.947308
+german: Es kann an diesem Punkte weiter eingesehen werden, daß die Erkenntnis der Bedingungen, welche in der Natur liegen und von der Naturwissenschaft entwickelt werden, in einem breiten Umfang die Grundlage für das Studium der geistigen Tatsachen bilden.
+reference_korean: 이 지점에서는 더 나아가서 다음과 같은 점도 파악할 수 있다. 즉, 자연 속에 놓여 있으며 자연과학에 의해 밝혀지는 조건들에 대한 인식이 광범위한 영역에서 정신적 사실들을 연구하는 토대를 형성한다는 점을 알 수 있다.
+hypothesis_korean: 이 지점에서 더 나아가 다음과 같은 사실을 통찰할 수 있다. 즉, 자연 안에 놓여 있으며 자연과학에 의해 전개되는 조건들에 대한 인식이 광범위하게 정신적 사실들에 대한 연구의 토대를 형성한다는 것이다.
+error_spans:
+[
+  {
+    "text": "안에",
+    "confidence": 0.40370604395866394,
+    "severity": "minor",
+    "start": 39,
+    "end": 42
+  },
+  {
+    "text": "전개",
+    "confidence": 0.4128783643245697,
+    "severity": "minor",
+    "start": 58,
+    "end": 61
+  }
+]
+
+--- segment 27 ---
+xcomet_score: 0.979612
+german: Wie die Entwicklung des einzelnen Menschen, so ist auch die Ausbreitung des Menschengeschlechts über das Erdganze und die Gestaltung seiner Schicksale in der Geschichte durch den ganzen kosmischen Zusammenhang bedingt.
+reference_korean: 한 개인의 발달이 그렇듯이, 인류 전체의 전지구적인 확산과, 역사 속에서 형성되는 인류의 운명 또한 전체 우주적 연관에 의해 조건 지어진다.
+hypothesis_korean: 개별 인간의 발달과 마찬가지로, 지구 전체에 걸친 인류의 확산과 역사 속에서 인류 운명의 형성 역시 전체 우주적 연관에 의해 규정된다.
+error_spans:
+[]
+
+--- segment 28 ---
+xcomet_score: 0.979897
+german: Kriege bilden z. B. einen Hauptbestandteil aller Geschichte, da diese als politische es mit dem Willen von Staaten zu tun hat, dieser aber in Waffen auftritt und sich durch dieselben durchsetzt.
+reference_korean: 예를 들어, 전쟁은 모든 역사의 한 주요 구성 요소인데, 이 역사가, 정치적 역사로서, 국가들의 의지를 다루는데, 이 의지가 무기를 통해서 나타나고 또 무기를 통해 관철되기 때문이다.
+hypothesis_korean: 예를 들어 전쟁은 모든 역사의 주요 구성 요소를 이룬다. 왜냐하면 역사는 정치적인 것으로서 국가들의 의지를 다루는데, 이 의지는 무력으로 나타나며 무력을 통해 관철되기 때문이다.
+error_spans:
+[]
+
+--- segment 29 ---
+xcomet_score: 0.984763
+german: Die Theorie des Kriegs hängt aber in erster Linie von der Erkenntnis des Physischen ab, welches für die streitenden Willen Unterlage und Mittel darbietet.
+reference_korean: 그러나 전쟁 이론은 무엇보다도 먼저, 서로 싸우는 의지들에게 토대이자 수단을 제공해주는 물리적인 것에 대한 인식에 의존한다.
+hypothesis_korean: 그러나 전쟁 이론은 무엇보다도 먼저 물리적인 것에 대한 인식에 의존하는데, 이 물리적인 것은 투쟁하는 의지들에게 토대와 수단을 제공한다.
+error_spans:
+[]
+
+--- segment 30 ---
+xcomet_score: 0.996284
+german: Denn mit den Mitteln der physischen Gewalt verfolgt der Krieg den Zweck, dem Feinde unseren Willen aufzuzwingen.
+reference_korean: 왜냐하면 전쟁은 물리적인 폭력적 수단을 통해서 적에게 우리의 의지를 강요하는 것을 목적으로 추구하기 때문이다.
+hypothesis_korean: 왜냐하면 전쟁은 물리적 폭력이라는 수단을 통해 적에게 우리의 의지를 강요한다는 목적을 추구하기 때문이다.
+error_spans:
+[]
+
+--- segment 31 ---
+xcomet_score: 0.592061
+german: Dies schließt in sich, daß der Gegner auf der Linie bis zur Wehrlosigkeit, welche das theoretische Ziel des als Krieg bezeichneten Aktes der Gewalt bildet, zu dem Punkte hingezwungen werde, an welchem seine Lage nachteiliger ist als das Opfer, das von ihm gefordert wird, und nur mit einer nachteiligeren vertauscht werden kann.
+reference_korean: 이는 곧 상대방이 불가항력적 상태에 이를 때까지 압박하는 것을 포함하는데, 이 불가항력적인 상태는 폭력 행위로서의 전쟁이 지향하는 이론적 목표이며, 적의 상황이 우리가 요구하는 상태보다 더 불리해지고 오로지 그보다 더 나쁜 상황으로 바뀌는 것 말고는 선택지가 없는 지점을 의미한다.
+hypothesis_korean: 이는 다음을 내포한다. 즉, 적을 무력화 상태에 이르는 선상에서―이는 전쟁으로 명명되는 폭력 행위의 이론적 목표를 이루는 것인데―그 지점까지 강제해야 한다는 것이다. 그 지점에서 적의 처지는 그에게 요구되는 희생보다 더 불리하며, 오직 더 불리한 처지로만 바뀔 수 있는 상황에 놓이게 된다.
+error_spans:
+[
+  {
+    "text": "무",
+    "confidence": 0.3464112877845764,
+    "severity": "major",
+    "start": 18,
+    "end": 20
+  },
+  {
+    "text": "이르",
+    "confidence": 0.35368821024894714,
+    "severity": "major",
+    "start": 26,
+    "end": 29
+  },
+  {
+    "text": "선상에서",
+    "confidence": 0.4030715525150299,
+    "severity": "major",
+    "start": 30,
+    "end": 35
+  },
+  {
+    "text": "―그",
+    "confidence": 0.35248517990112305,
+    "severity": "major",
+    "start": 71,
+    "end": 73
+  },
+  {
+    "text": "강제해야",
+    "confidence": 0.39597344398498535,
+    "severity": "major",
+    "start": 78,
+    "end": 83
+  },
+  {
+    "text": "되는 희생",
+    "confidence": 0.39723101258277893,
+    "severity": "major",
+    "start": 113,
+    "end": 118
+  }
+]
+
+--- segment 32 ---
+xcomet_score: 0.972464
+german: In dieser großen Rechnung sind also die für die Wissenschaft wichtigsten, sie zumeist beschäftigenden Zahlen die physischen Bedingungen und Mittel, während über die psychischen Faktoren sehr wenig zu sagen ist.
+reference_korean: 이러한 거대한 계산법에서는 그래서 과학적으로 가장 중요하고 가장 많이 다루어지는 수치가 물리적 조건들과 수단들인 반면, 심리적 요인들에 대해서는 말할 수 있는 것이 그리 많지 않다.
+hypothesis_korean: 따라서 이 거대한 계산에서 학문에 가장 중요하고 주로 다루어지는 수치들은 물리적 조건과 수단인 반면, 심리적 요인들에 대해서는 언급할 것이 거의 없다.
+error_spans:
+[]
+
+--- segment 33 ---
+xcomet_score: 0.771382
+german: Und zwar haben die Wissenschaften des Menschen, der Gesellschaft und der Geschichte einmal die der Natur zu ihrer Grundlage, sofern die psycho-physischen Einheiten selber nur mit Hilfe der Biologie studiert werden können, alsdann aber, sofern das Mittel, in dem ihre Entwicklung und ihre Zwecktätigkeit stattfindet, auf dessen Beherrschung also diese letztere sich zu einem großen Teile bezieht, die Natur ist.
+reference_korean: 인간과 사회 그리고 역사에 관한 학문들은 두 가지 측면에서 자연과학을 그 토대로 삼는다. 첫째는 심리-생리적 생명 통일체(인간) 자체가 오직 생물학의 도움을 통해서만 연구될 수 있기 때문이며, 둘째 그것들의 발달과 목적 지향적인 활동이 사용하는 수단이자, 이러한 활동이 대부분 지배하고자 하는 대상이 바로 자연이기 때문이다.
+hypothesis_korean: 인간, 사회, 역사에 관한 학문들은 자연에 관한 학문들을 그 토대로 삼는다. 첫째로는 심리-물리적 통일체들 자체가 오직 생물학의 도움을 통해서만 연구될 수 있다는 점에서 그러하며, 둘째로는 인간의 발전과 목적 활동이 일어나는 매개체이자, 따라서 이러한 목적 활동이 상당 부분 그것의 지배를 지향하는 대상이 바로 자연이라는 점에서 그러하다.
+error_spans:
+[
+  {
+    "text": "통일",
+    "confidence": 0.36566394567489624,
+    "severity": "minor",
+    "start": 54,
+    "end": 57
+  },
+  {
+    "text": "상당 부분 그것의 지배를",
+    "confidence": 0.4131265878677368,
+    "severity": "major",
+    "start": 147,
+    "end": 161
+  },
+  {
+    "text": "향",
+    "confidence": 0.38200461864471436,
+    "severity": "major",
+    "start": 163,
+    "end": 164
+  }
+]
+
+--- segment 34 ---
+xcomet_score: 0.973934
+german: In der ersteren Rücksicht bilden die Wissenschaften des Organismus ihre Grundlage, in der zweiten vorwiegend die der anorganischen Natur.
+reference_korean: 첫 번째 관점에서는 유기체에 관한 과학이 토대가 되고, 두 번째 관점에서는 주로 무기적 자연에 관한 과학이 토대가 된다.
+hypothesis_korean: 전자의 관점에서는 유기체의 학문들이 그 기초를 이루며, 후자의 관점에서는 주로 무기적 자연의 학문들이 기초를 이룬다.
+error_spans:
+[]
+
+--- segment 35 ---
+xcomet_score: 0.919052
+german: Und zwar besteht der so aufzuklärende Zusammenhang einmal darin, daß diese Naturbedingungen Entwicklung und Verteilung des geistigen Lebens auf der Erdoberfläche bestimmen, alsdann darin, daß die Zwecktätigkeit des Menschen an die Gesetze der Natur gebunden und so durch ihre Erkenntnis und Benutzung bedingt ist.
+reference_korean: 그리고 규명되어야 할 연관관계는 첫째, 자연 조건들이 지구 표면에서의 정신적 삶의 발달과 분포를 규정한다는 점, 둘째, 인간의 목적 지향적 활동이 자연 법칙에 얽매어 있으므로, 자연에 대한 인식과 이용에 의해 조건 지어진다는 점이다.
+hypothesis_korean: 그리고 이렇게 해명되어야 할 연관은 한편으로는 이러한 자연 조건들이 지구 표면 위에서 정신적 삶의 발전과 분포를 규정한다는 점에 있으며, 다른 한편으로는 인간의 목적 활동이 자연의 법칙들에 구속되어 있고 따라서 그것들에 대한 인식과 활용에 의해 조건 지어진다는 점에 있다.
+error_spans:
+[
+  {
+    "text": "이렇게",
+    "confidence": 0.36668047308921814,
+    "severity": "minor",
+    "start": 3,
+    "end": 7
+  },
+  {
+    "text": "관",
+    "confidence": 0.3546557128429413,
+    "severity": "minor",
+    "start": 17,
+    "end": 18
+  },
+  {
+    "text": "목적",
+    "confidence": 0.3890213966369629,
+    "severity": "minor",
+    "start": 89,
+    "end": 92
+  }
+]
+
+--- segment 36 ---
+xcomet_score: 0.973284
+german: Daher zeigt das erstere Verhältnis nur Abhängigkeit des Menschen von der Natur, das zweite aber enthält diese Abhängigkeit nur als die andere Seite der Geschichte seiner zunehmenden Herrschaft über das Erdganze.
+reference_korean: 따라서 첫 번째 관계는 인간이 자연에 대한 의존하고 있다는 것만 보여주지만, 두 번째 관계는 그러한 의존성을 지구 전체에 대한 인간의 지배력이 점점 증대되어 온 역사 과정의 이면으로서 포함하고 있다.
+hypothesis_korean: 따라서 전자의 관계는 자연에 대한 인간의 의존성만을 보여주는 반면, 후자는 이러한 의존성을 지구 전체에 대한 인간의 지배력 증대라는 역사의 다른 한 측면으로서만 포함하고 있다.
+error_spans:
+[]
+
+--- segment 37 ---
+xcomet_score: 0.832085
+german: Derjenige Teil des ersteren Verhältnisses, welcher die Beziehungen des Menschen zu der umgebenden Natur einschließt, ist von Ritter einer vergleichenden Methode unterworfen worden.
+reference_korean: 첫 번째 관계에는 인간과 그를 둘러싼 자연의 관계가 포함되어 있는데, 이 부분은 칼 리터에 의해 비교 방법론적 연구의 대상이 되었다.
+hypothesis_korean: 전자의 관계 중에서 인간과 주변 자연의 관계를 포함하는 부분은 리터에 의해 비교 방법론의 대상이 되었다.
+error_spans:
+[
+  {
+    "text": "전자의",
+    "confidence": 0.4782322347164154,
+    "severity": "major",
+    "start": 0,
+    "end": 3
+  },
+  {
+    "text": "중에서",
+    "confidence": 0.36178597807884216,
+    "severity": "major",
+    "start": 6,
+    "end": 10
+  }
+]
+
+--- segment 38 ---
+xcomet_score: 0.656387
+german: Glänzende Blicke, wie besonders seine vergleichende Schätzung der Erdteile nach der Gliederung ihrer Umrisse, ließen eine in den Raumverhältnissen des Erdganzen festgelegte Prädestination der Universalgeschichte ahnen.
+reference_korean: 특히 지구 대륙들의 윤곽 구조에 따른 비교 평가와 같은 그의 탁월한 통찰은, 지구 전체의 공간적 관계 속에 '보편사의 예정성'이 내재적으로 고정되어 있다는 것을 짐작할 수 있게 해주었다.
+hypothesis_korean: 특히 대륙들의 윤곽 분절에 따른 그의 비교적 평가와 같은 빛나는 통찰들은, 지구 전체의 공간적 관계 속에 확정된 보편사의 예정론을 예감하게 했다.
+error_spans:
+[
+  {
+    "text": "윤곽 분절",
+    "confidence": 0.4405490756034851,
+    "severity": "major",
+    "start": 7,
+    "end": 13
+  },
+  {
+    "text": "확정",
+    "confidence": 0.3617390990257263,
+    "severity": "major",
+    "start": 58,
+    "end": 61
+  },
+  {
+    "text": "보편사의 예정론",
+    "confidence": 0.41346922516822815,
+    "severity": "major",
+    "start": 62,
+    "end": 71
+  },
+  {
+    "text": "감",
+    "confidence": 0.3663341999053955,
+    "severity": "major",
+    "start": 74,
+    "end": 75
+  }
+]
+
+--- segment 39 ---
+xcomet_score: 0.778822
+german: Die folgenden Arbeiten haben diese bei Ritter als Teleologie der Universalgeschichte gedachte, von einem Buckle in den Dienst des Naturalismus gezogene Anschauung doch nicht bestätigt: an die Stelle der Vorstellung einer gleichmäßigen Abhängigkeit des Menschen von den Naturbedingungen tritt die vorsichtigere Vorstellung, daß das Ringen der geistig-sittlichen Kräfte mit den Bedingungen der toten Räumlichkeit bei den geschichtlichen Völkern, im Gegensatz zu den geschichtslosen, das Verhältnis von Abhängigkeit beständig vermindert hat.
+reference_korean: 그러나 이후의 연구들은, 리터에게서 보편사의 목적론(Teleologie)으로 사유되었고, 버클에 의해서는 자연주의에 봉사하는 도구 이용되었던 이러한 관점을 확증해 주지 않았다. 인간이 자연 조건에 일률적으로 의존한다는 관념 대신에, 역사적 민족들에서는—비역사적 민족들에게서와는 달리—정신적·도덕적 힘들이 죽어 있는 공간성의 조건들과 투쟁함으로써 의존 관계를 지속적으로 감소시켜 왔다는, 보다 더 신중한 관념이 자리 잡게 되었다.
+hypothesis_korean: 리터에게서 보편사의 목적론으로 구상되었고 버클에 의해 자연주의에 봉사하도록 동원된 이러한 관점은, 그러나 이후의 연구들에 의해 확증되지 않았다. 자연 조건에 대한 인간의 균일한 의존이라는 표상 대신에, 보다 신중한 표상이 그 자리를 차지하게 되었다. 즉 역사를 지닌 민족들에게서는, 역사를 갖지 못한 민족들과 대조적으로, 정신적-도덕적 힘들이 죽은 공간성의 조건들과 벌이는 투쟁이 의존 관계를 지속적으로 감소시켜 왔다는 표상이 그것이다.
+error_spans:
+[
+  {
+    "text": "적 힘들이 죽은 공간",
+    "confidence": 0.44220149517059326,
+    "severity": "major",
+    "start": 186,
+    "end": 197
+  }
+]
+
+--- segment 40 ---
+xcomet_score: 0.756961
+german: Und so hat auch hier eine selbständige, die Naturbedingungen zur Erklärung benutzende Wissenschaft der geschichtlich-gesellschaftlichen Wirklichkeit sich behauptet.
+reference_korean: 그리하여 여기서도 자연조건들을 역사·사회적 현실을 설명하는 수단으로 활용하는, 자율적인 과학이 그 지위를 확립하기에 이른다.
+hypothesis_korean: 그리하여 여기서도 자연적 조건들을 설명에 활용하는 독자적인 역사적-사회적 현실의 학문이 자신의 입지를 확립하였다.
+error_spans:
+[
+  {
+    "text": "독자적인",
+    "confidence": 0.41954123973846436,
+    "severity": "major",
+    "start": 27,
+    "end": 32
+  },
+  {
+    "text": "적-사회",
+    "confidence": 0.3716639578342438,
+    "severity": "major",
+    "start": 35,
+    "end": 39
+  },
+  {
+    "text": "현실의 학문",
+    "confidence": 0.42763441801071167,
+    "severity": "major",
+    "start": 40,
+    "end": 47
+  }
+]
+
+--- segment 41 ---
+xcomet_score: 0.777171
+german: Das andere Verhältnis aber zeigt mit der Abhängigkeit, welche durch die Anpassung an die Bedingungen gegeben ist, die Bewältigung der Räumlichkeit durch den wissenschaftlichen Gedanken und die Technik so verbunden, daß die Menschheit in ihrer Geschichte eben vermittels der Unterordnung die Herrschaft erringt.
+reference_korean: 하지만 두 번째 관계는, 자연조건에의 적응을 통해 주어지게 되는 의존성과, 과학적 사유와 기술을 통해서 자연 공간을 지배하는 과정이 서로 결합되어 있다는 것, 그리고 그 결과 인류는 역사를 거치면서 바로 이러한 자연에의 순종을 매개로 하여 자연 지배를 획득하게 되었다는 것을 보여준다.
+hypothesis_korean: 그러나 다른 관계는 조건들에 대한 적응을 통해 주어지는 의존성과 더불어, 과학적 사유와 기술에 의한 공간성의 극복이 결합되어 있음을 보여주는데, 이로써 인류는 그 역사 속에서 바로 종속을 매개로 하여 지배를 획득하게 된다.
+error_spans:
+[
+  {
+    "text": "공간성의 극복",
+    "confidence": 0.3514460325241089,
+    "severity": "major",
+    "start": 55,
+    "end": 63
+  },
+  {
+    "text": "종속을",
+    "confidence": 0.4207572042942047,
+    "severity": "major",
+    "start": 100,
+    "end": 104
+  }
+]
+
+--- segment 42 ---
+xcomet_score: 0.943254
+german: Natura enim non nisi parendo vincitur.
+reference_korean: 왜냐하면 자연은 오직 그것에 순응함으로써만 정복될 수 있기 때문이다(Natura enim non nisi parendo vincitur).
+hypothesis_korean: 자연은 오직 복종함으로써만 정복될 수 있다.
+error_spans:
+[]
+
+--- segment 43 ---
+xcomet_score: 0.940549
+german: Das Problem des Verhältnisses der Geisteswissenschaften zu der Naturerkenntnis kann jedoch erst als gelöst gelten, wenn jener Gegensatz, von dem wir ausgingen, zwischen dem transzendentalen Standpunkt, für welchen die Natur unter den Bedingungen des Bewußtseins steht, und dem objektiv empirischen Standpunkt, für welchen die Entwicklung des Geistigen unter den Bedingungen des Naturganzen steht, aufgelöst sein wird.
+reference_korean: 자연 인식에 대한 정신과학의 관계 문제는, 우리가 논의의 출발점으로 삼았던 둘의 대립, 즉 자연을 의식의 조건 아래에 두는 초월론적 관점과, 정신적인 것의 발달을 자연 전체의 조건 아래에다 두는 객관적·경험적 관점 간의 대립이 해소될 때라야 비로소 해결되는 것으로 볼 수 있다.
+hypothesis_korean: 그러나 정신과학과 자연인식의 관계 문제는, 우리가 출발점으로 삼았던 대립, 즉 자연이 의식의 조건들 아래 놓여 있다고 보는 초월론적 입장과 정신적인 것의 발전이 자연 전체의 조건들 아래 놓여 있다고 보는 객관적 경험적 입장 사이의 대립이 해소될 때 비로소 해결된 것으로 간주될 수 있다.
+error_spans:
+[]
+
+--- segment 44 ---
+xcomet_score: 0.992002
+german: Diese Aufgabe bildet eine Seite des Erkenntnisproblems.
+reference_korean: 이 과업은 인식 문제의 한 측면을 이룬다.
+hypothesis_korean: 이 과제는 인식 문제의 한 측면을 이룬다.
+error_spans:
+[]
+
+--- segment 45 ---
+xcomet_score: 0.993279
+german: Isoliert man dies Problem für die Geisteswissenschaften, so erscheint eine für alle überzeugende Auflösung nicht unmöglich.
+reference_korean: 이 문제를 정신과학에 한정시켜서 다룬다면, 모두에게 설득력 있는 해법이 불가능한 것만은 아닌 듯하다.
+hypothesis_korean: 이 문제를 정신과학에 국한시켜 고찰한다면, 모두를 설득할 수 있는 해결책이 불가능한 것은 아닌 것으로 보인다.
+error_spans:
+[]
+
+--- segment 46 ---
+xcomet_score: 0.913453
+german: Die Bedingungen derselben würden sein: Nachweis der objektiven Realität der inneren Erfahrung; Bewahrheitung der Existenz einer Außenwelt; alsdann sind in dieser Außenwelt geistige Tatsachen und geistige Wesen kraft eines Vorgangs von Übertragung unseres Inneren in dieselbe da;
+reference_korean: 그 해결의 조건은 다음과 같을 것이다. 첫째, 내적 경험의 객관적 실재성을 증명하는 것, 둘째, 외부 세계의 존재를 확증하는 것, 그 다음에 외부 세계 안에는, 우리의 내면을 그것에 전이(투사)하는 과정을 통해 정신적 사실들과 정신적 존재들이 존재하게 된다.
+hypothesis_korean: 그것의 조건들은 다음과 같을 것이다: 내적 경험의 객관적 실재성에 대한 증명, 외부 세계의 존재에 대한 입증, 그런 다음 이 외부 세계 안에는 우리의 내면을 외부 세계로 전이하는 과정의 힘에 의해 정신적 사실들과 정신적 존재자들이 현존한다.
+error_spans:
+[
+  {
+    "text": "힘",
+    "confidence": 0.39391881227493286,
+    "severity": "minor",
+    "start": 103,
+    "end": 105
+  }
+]
+
+--- segment 47 ---
+xcomet_score: 0.856421
+german: wie das geblendete Auge, das in die Sonne geblickt hat, ihr Bild in den verschiedensten Farben, an den verschiedensten Stellen im Raume wiederholt: so vervielfältigt unsere Auffassung das Bild unseres Innenlebens und versetzt es in mannigfachen Abwandlungen an verschiedene Stellen des uns umgebenden Naturganzen;
+reference_korean: 태양을 바라보았다가 그로 인해서 부신 눈이, 태양의 상을 가장 다양한 색채로, 가장 다양한 공간적 위치에서 반복해서 보는 것처럼, 우리의 인식은 우리의 내적 삶의 상들을 증식시키고, 그것을 다양한 변형 속에서 우리를 둘러싼 자연 전체의 여러 위치에다 옮겨 놓는다.
+hypothesis_korean: 태양을 응시한 눈이 눈부심 속에서 태양의 상을 가장 다양한 색채로, 공간의 가장 다양한 지점에서 반복해서 보듯이, 우리의 지각 역시 우리 내면 삶의 상을 다양하게 증식시키고 그것을 여러 변형된 형태로 우리를 둘러싼 자연 전체의 서로 다른 지점들에 투사한다.
+error_spans:
+[
+  {
+    "text": "눈부심 속에서",
+    "confidence": 0.3546282649040222,
+    "severity": "minor",
+    "start": 10,
+    "end": 18
+  }
+]
+
+--- segment 48 ---
+xcomet_score: 0.690485
+german: dieser Vorgang läßt sich aber logisch als ein Analogieschluß von diesem originaliter uns allein unmittelbar gegebenen Innenleben, vermittels der Vorstellungen von den mit ihm verketteten Äußerungen, auf ein verwandten Erscheinungen der Außenwelt entsprechend Verwandtes, zugrunde Liegendes darstellen und rechtfertigen.
+reference_korean: 그러나 이 과정은 논리적으로는, 원본적으로 오로지 우리에게만 직접 주어지는 내적 삶으로부터 시작해서, 그것과 연결되어 있는 외적 표현들에 대한 표상을 매개로 해서, 외부 세계의 현상들에서 그에 상응하는 유사한 것을 관찰할 때, 그 근저에 나와 유사한 내면적인 것이 놓여 있는 것으로 유비적으로 추론해 나가는 유비 추론으로 묘사되고 정당화될 수 있다.
+hypothesis_korean: 그러나 이 과정은 논리적으로 다음과 같이 표현되고 정당화될 수 있다. 즉, 원본적으로 우리에게 유일하게 직접적으로 주어진 이 내면적 삶으로부터, 그것과 결합된 외적 표현들에 대한 표상들을 매개로 하여, 외부 세계의 유사한 현상들에 상응하는 유사한 근저에 놓인 것으로 나아가는 유추 추론으로서 말이다.
+error_spans:
+[
+  {
+    "text": "들에 상응하는 유사한 근저에",
+    "confidence": 0.39269083738327026,
+    "severity": "major",
+    "start": 126,
+    "end": 141
+  },
+  {
+    "text": "놓인 것으로 나아가는 유추 추",
+    "confidence": 0.4240037798881531,
+    "severity": "major",
+    "start": 142,
+    "end": 158
+  }
+]
+
+--- segment 49 ---
+xcomet_score: 0.678319
+german: Was immer die Natur an sich selber sein mag, das Studium der Ursachen des Geistigen kann sich daran genügen lassen, daß jedenfalls ihre Erscheinungen als Zeichen des Wirklichen, daß die Gleichförmigkeiten in ihrem Zusammensein und ihrer Folge als ein Zeichen solcher Gleichförmigkeiten in dem Wirklichen aufgefaßt und benutzt werden können.
+reference_korean: 자연이 그 자체로 무엇이든 간에, 정신적인 것의 원인에 대한 연구는 다음의 경우, 즉 자연 현상들이 현실적인 것의 표지로서 이해되고, 그러한 것들의 공시적 병존이나, 시간 계열에 따른 출현에서 보이는 규칙성들이 현실적인 것 내에 존재하는 규칙성들의 표지로 파악되어 활용될 수 있다면, 그것으로 충분하다.
+hypothesis_korean: 자연이 그 자체로 무엇이든 간에, 정신적인 것의 원인들에 대한 연구는 다음과 같은 점에서 만족할 수 있다. 즉 자연의 현상들은 실재적인 것의 기호로서, 그리고 자연 현상들의 공존과 계기에서 나타나는 규칙성들은 실재적인 것 안에 있는 그러한 규칙성들의 기호로서 파악되고 활용될 수 있다는 점이다.
+error_spans:
+[
+  {
+    "text": "에서 만족",
+    "confidence": 0.4431799650192261,
+    "severity": "major",
+    "start": 47,
+    "end": 52
+  },
+  {
+    "text": "수",
+    "confidence": 0.3819320797920227,
+    "severity": "major",
+    "start": 53,
+    "end": 55
+  },
+  {
+    "text": "공존",
+    "confidence": 0.349728524684906,
+    "severity": "major",
+    "start": 96,
+    "end": 99
+  },
+  {
+    "text": "계기",
+    "confidence": 0.46761488914489746,
+    "severity": "major",
+    "start": 100,
+    "end": 103
+  }
+]
+
+--- segment 50 ---
+xcomet_score: 0.791558
+german: Tritt man aber in die Welt des Geistes und untersucht die Natur, sofern sie Inhalt des Geistes, sofern sie als Zweck oder Mittel in den Willen eingewoben ist: für den Geist ist sie eben, was'sie in ihm ist, und was sie an sich sein mag, ist hier ganz gleichgültig.
+reference_korean: 그러나 우리가 정신의 세계로 들어가서 자연을, 그것이 우리 의지 내부에 목적이나 수단으로 엮여 있는 한에서 정신적 내용으로서 고찰한다면, 정신에게 자연은 정신 안에서 나타나는 그대로일 뿐이며, 그 자연이 그 자체로 무엇일지는 여기서 전적으로 무관하다.
+hypothesis_korean: 그러나 정신의 세계로 들어가서 자연을 탐구할 때, 자연이 정신의 내용이 되는 한에서, 자연이 목적이나 수단으로서 의지 속에 짜여 들어가 있는 한에서 살펴보면: 정신에게 자연은 바로 정신 안에서 자연이 존재하는 그대로일 뿐이며, 자연이 그 자체로 무엇일 수 있는가 하는 것은 여기서는 전혀 중요하지 않다.
+error_spans:
+[
+  {
+    "text": "짜",
+    "confidence": 0.3725200891494751,
+    "severity": "major",
+    "start": 69,
+    "end": 70
+  },
+  {
+    "text": "자연",
+    "confidence": 0.3314019739627838,
+    "severity": "major",
+    "start": 107,
+    "end": 110
+  },
+  {
+    "text": "수",
+    "confidence": 0.35501614212989807,
+    "severity": "minor",
+    "start": 140,
+    "end": 142
+  }
+]
+
+--- segment 51 ---
+xcomet_score: 0.413593
+german: Genug, daß er so, wie sie ihm gegeben ist, auf ihre Gesetzmäßigkeit in seinen Handlungen rechnen und den schönen Schein ihres Daseins genießen kann.
+reference_korean: 정신은 자신의 행위에서 자연이 자신에게 주어지는 그대로의 모습에 기반해서 자연의 법칙성을 기대할 수 있고, 또 자연의 존재가 지닌 아름다운 외관을 향유할 수 있으면, 그것으로 충분하다
+hypothesis_korean: 충분하다. 그에게 주어진 그대로, 그는 자신의 행위에서 그것의 합법칙성을 고려할 수 있고 그것의 현존재가 지닌 아름다운 가상을 향유할 수 있다는 것만으로.
+error_spans:
+[
+  {
+    "text": ". 그",
+    "confidence": 0.399054616689682,
+    "severity": "major",
+    "start": 4,
+    "end": 7
+  },
+  {
+    "text": "그대로, 그는",
+    "confidence": 0.41670724749565125,
+    "severity": "major",
+    "start": 13,
+    "end": 21
+  },
+  {
+    "text": "그것의 합법칙",
+    "confidence": 0.4689197540283203,
+    "severity": "major",
+    "start": 30,
+    "end": 38
+  },
+  {
+    "text": "고려",
+    "confidence": 0.5180362462997437,
+    "severity": "major",
+    "start": 40,
+    "end": 43
+  },
+  {
+    "text": "그것의 현존재가",
+    "confidence": 0.48614153265953064,
+    "severity": "major",
+    "start": 49,
+    "end": 58
+  },
+  {
+    "text": "가상을",
+    "confidence": 0.4984425902366638,
+    "severity": "major",
+    "start": 66,
+    "end": 70
+  },
+  {
+    "text": "있다는 것만으로",
+    "confidence": 0.4335912764072418,
+    "severity": "major",
+    "start": 76,
+    "end": 85
+  }
+]
