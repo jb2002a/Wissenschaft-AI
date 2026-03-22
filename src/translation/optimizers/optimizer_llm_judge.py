@@ -12,7 +12,7 @@ from typing import Any, Optional
 import dspy
 
 from src.translation.data.dataset import get_train_valset
-from src.translation.metrics.legacy.translate_metric_legacy import metric_llm
+from src.translation.metrics.translate_metric_llm import metric_llm
 from src.translation.modules.translate import TranslateModule, get_lm
 
 

@@ -1,2 +1,0 @@
-"""Legacy (deprecated) translation optimizers."""
-
