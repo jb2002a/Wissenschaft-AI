@@ -3,17 +3,18 @@
 from __future__ import annotations
 
 import json
+import logging
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, List, Optional
 
 from src.translation.modules.translate import translate, translate_with_optimized
-
+from src.translation.evaluate.xcomet_modal_app import score_xcomet_remote
 
 _REPO_ROOT = Path(__file__).resolve().parents[3]
 _DEFAULT_TEST_JSON = _REPO_ROOT / "resources" / "test_dataset" / "test.json"
 _XCOMET_XL = "Unbabel/XCOMET-XL"
-
+_LOG = logging.getLogger(__name__)
 
 @dataclass
 class SegmentEvalRow:
@@ -37,6 +38,40 @@ class TestJsonEvaluationReport:
     using_artifact_path: str = "default"
 
 
+def _segment_to_lines(index: int, seg: SegmentEvalRow) -> List[str]:
+    block = [
+        f"--- segment {index} ---",
+        f"xcomet_score: {seg.xcomet_score:.6f}",
+        f"german: {seg.german}",
+        f"reference_korean: {seg.reference_korean}",
+        f"hypothesis_korean: {seg.hypothesis_korean}",
+    ]
+    if seg.error_spans is not None:
+        block.append(
+            "error_spans:\n"
+            + json.dumps(seg.error_spans, ensure_ascii=False, indent=2, default=str)
+        )
+    else:
+        block.append("error_spans: null")
+    block.append("")
+    return block
+
+
+def report_to_plain_text(report: TestJsonEvaluationReport) -> str:
+    """``TestJsonEvaluationReport`` / ``SegmentEvalRow`` 필드를 풀어 사람이 읽기 쉬운 텍스트로 만든다."""
+    lines: List[str] = [
+        f"json_path: {report.json_path}",
+        f"use_optimized: {report.use_optimized}",
+        f"using_artifact_path: {report.using_artifact_path}",
+        f"system_score: {report.system_score:.6f}",
+        f"num_segments: {len(report.segments)}",
+        "",
+    ]
+    for i, seg in enumerate(report.segments):
+        lines.extend(_segment_to_lines(i, seg))
+    return "\n".join(lines).rstrip() + "\n"
+
+
 def load_test_json(path: Optional[Path] = None) -> List[dict]:
     """test.json 형식: 각 항목에 ``german``, ``korean`` 키."""
     p = path or _DEFAULT_TEST_JSON
@@ -55,8 +90,10 @@ def translate_test_items(
     각 항목의 ``german``을 ``translate`` / ``translate_with_optimized``로 번역해
     ``hypothesis_korean`` 필드를 추가한 복사본 리스트를 반환.
     """
+    _LOG.info("번역 시작")
     out: List[dict] = []
-    for row in items:
+    for i, row in enumerate(items):
+        _LOG.info(f"번역 중 {i+1} / {len(items)}")
         g = row["german"]
         if use_optimized:
             hyp = translate_with_optimized(g, optimized_path=optimized_path)
@@ -84,8 +121,7 @@ def run_test_json_evaluation(
     *,
     use_optimized: bool = True,
     optimized_path: str = "artifacts/translation_optimized_regacy.json",
-    batch_size: int = 8,
-    gpus: int = 0,
+    batch_size: int = 4,
     model_name: str = _XCOMET_XL,
 ) -> TestJsonEvaluationReport:
     """
@@ -103,15 +139,17 @@ def run_test_json_evaluation(
     # comet을 위한 dictionary 재구성
     samples = build_xcomet_samples(translated)
 
-    # comet 모델로 점수 산출
-    from src.translation.evaluate.xcomet_modal_app import score_xcomet_remote
-    model_output = score_xcomet_remote.remote(
-    samples,
-    model_name=model_name,
-    batch_size=batch_size,
+    # xcomet 실행
+    raw_out = score_xcomet_remote.remote(
+        samples,
+        model_name=model_name,
+        batch_size=batch_size,
     )
-    
-    error_spans_list = model_output.metadata.error_spans
+
+
+    scores_list = raw_out["scores"]
+    sys_score = float(raw_out["system_score"])
+    error_spans_list = raw_out["error_spans"]
 
     segment_rows: List[SegmentEvalRow] = []
     for i, row in enumerate(translated):
@@ -120,13 +158,13 @@ def run_test_json_evaluation(
                 german=row["german"],
                 reference_korean=row["korean"],
                 hypothesis_korean=row["hypothesis_korean"],
-                xcomet_score=float(model_output.scores[i]),
+                xcomet_score=float(scores_list[i]),
                 error_spans=error_spans_list[i],
             )
         )
 
     return TestJsonEvaluationReport(
-        system_score=float(model_output.system_score),
+        system_score=sys_score,
         segments=segment_rows,
         json_path=path,
         use_optimized=use_optimized,
