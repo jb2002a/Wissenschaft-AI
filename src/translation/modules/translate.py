@@ -1,23 +1,27 @@
-"""번역 DSPy 모듈(translate)."""
+"""번역 모듈, model : gemini"""
 
 import dspy
 
 from src.translation.modules.get_lm import get_lm
 from src.translation.signatures.german_to_korean import GermanToKorean
-
+import os
 
 
 class TranslateModule(dspy.Module):
-    """독일어→한국어 번역 DSPy 모듈."""
-
     def __init__(self):
         super().__init__()
         self.predictor = dspy.Predict(GermanToKorean)
+        self.translate_lm = dspy.LM(
+            "gemini/gemini-2.5-flash",
+            api_key=os.getenv("GOOGLE_API_KEY"),
+            temperature=0.0,
+        )
 
     def forward(self, original_text: str):
-        out = self.predictor(original_text=original_text)
-        return out
+        with dspy.context(lm=self.translate_lm):
+            return self.predictor(original_text=original_text)
 
+# 하단 코드는 사용하지 않는 코드입니다. 필요시 사용
 
 def translate(original_text: str, lm_type: str = "gemini") -> str:
     """번역 실행 모듈, 기본 모델로 번역"""

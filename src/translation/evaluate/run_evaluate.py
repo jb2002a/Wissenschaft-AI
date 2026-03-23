@@ -1,104 +1,124 @@
-"""LLM-as-a-judge evaluation, 
-
-실행 예 (프로젝트 루트에서):
-  # 최적화 모듈 로드(기본)
-  python -c "from src.translation.evaluate.run_evaluate import run_translation_evaluate; print(run_translation_evaluate())"
-  # 최적화 모듈 로드 없이 기본 모듈 사용
-  python -c "from src.translation.evaluate.run_evaluate import run_translation_evaluate; print(run_translation_evaluate(load=False))"
-"""
-
-import json
-from datetime import datetime
-from pathlib import Path
-from typing import List
+"""번역 평가 실행 judge model : claude"""
 
 import dspy
-from dspy.evaluate import Evaluate
+import wandb
 
-from src.translation.metrics.translate_metric import metric_llm
-from src.translation.modules.translate import TranslateModule, get_lm
-
-_DEFAULT_TEST_JSON = (
-    Path(__file__).resolve().parents[3] / "resources" / "test_dataset" / "test.json"
-)
-_DEFAULT_OPTIMIZED_ARTIFACT = (
-    Path(__file__).resolve().parents[3] / "artifacts" / "translation_optimized.json"
-)
-_EVALUATION_LOGS_DIR = Path(__file__).resolve().parents[3] / "logs" / "evaluation_logs"
+from src.translation.modules.translate_dataset import load_test_dataset_json, change_to_the_examples
+from src.translation.metrics.translate_metric_llm import metric_llm_v2
+from src.translation.modules.translate import TranslateModule
+from src.translation.modules.get_lm import get_lm
 
 
-def load_test_devset(json_path: str | Path | None = None) -> List[dspy.Example]:
-    """
-    test.json을 로드해 dspy.Example 리스트로 변환한다.
-    JSON 각 항목: {"german": str, "korean": str} -> original_text, translated_text.
-    """
-    path = Path(json_path) if json_path is not None else _DEFAULT_TEST_JSON
-    with path.open(encoding="utf-8") as f:
-        data = json.load(f)
-    rows = data if isinstance(data, list) else [data]
-    return [
-        dspy.Example(
-            original_text=r["german"],
-            translated_text=r["korean"],
-        ).with_inputs("original_text")
-        for r in rows
-    ]
+def _safe_get(obj, key, default=None):
+    if obj is None:
+        return default
+    if isinstance(obj, dict):
+        return obj.get(key, default)
+    return getattr(obj, key, default)
 
 
-def run_translation_evaluate(
-    dataset_path: str | Path | None = None,
-    num_threads: int | None = 1,
-    display_progress: bool = False,
-    display_table: bool | int = False,
-    load: bool = True,
-    optimized_path: str | Path | None = None,
-    lm_type: str = "gemini",
-) -> List[dict]:
-    """
-    DSPy Evaluate로 테스트 데이터셋에 대해 번역 품질 평가를 수행하고,
-    샘플별 original_text, translated_text, ai_text 및 5개 점수를 담은 dict 리스트를 반환·저장한다.
+def _extract_row(row):
+    """DSPy EvaluationResult.results row를 버전별로 안전 파싱."""
+    source = None
+    reference = None
+    prediction = None
+    score = None
 
-    - devset: dataset_path(기본 resources/test_dataset/test.json)에서 로드한 Example 목록
-    - program:
-        - load=True  이면 artifacts/translation_optimized.json(또는 optimized_path)을 load한 TranslateModule
-        - load=False 이면 기본 TranslateModule 인스턴스
-    - metric: metric_llm(..., evaluation=True)로 5개 항목 dict 반환, Evaluate 내부 합산용으로는 평균값 전달
+    # 케이스 1) tuple/list: (example, prediction, score) 형태
+    if isinstance(row, (tuple, list)):
+        ex = row[0] if len(row) > 0 else None
+        pred = row[1] if len(row) > 1 else None
+        score = row[2] if len(row) > 2 else None
 
-    Returns:
-        list[dict]: 각 샘플별 original_text, translated_text, ai_text, faithfulness, terminology_accuracy, korean_fluency, style_register, overall_score
-    """
+        source = _safe_get(ex, "original_text")
+        reference = _safe_get(ex, "translated_text")
+        prediction = _safe_get(pred, "translated_text")
+
+        return source, reference, prediction, score
+
+    # 케이스 2) dict 형태
+    if isinstance(row, dict):
+        ex = row.get("example")
+        pred = row.get("prediction")
+        score = row.get("score", row.get("metric"))
+
+        source = (
+            _safe_get(ex, "original_text")
+            or row.get("source")
+            or row.get("original_text")
+            or row.get("input")
+        )
+        reference = (
+            _safe_get(ex, "translated_text")
+            or row.get("reference")
+            or row.get("translated_text")
+            or row.get("label")
+        )
+        prediction = (
+            _safe_get(pred, "translated_text")
+            or row.get("prediction")
+            or row.get("prediction_text")
+            or row.get("output")
+        )
+
+        return source, reference, prediction, score
+
+    # 케이스 3) 객체 형태
+    ex = _safe_get(row, "example")
+    pred = _safe_get(row, "prediction")
+    score = _safe_get(row, "score", _safe_get(row, "metric"))
+
+    source = _safe_get(ex, "original_text", _safe_get(row, "original_text"))
+    reference = _safe_get(ex, "translated_text", _safe_get(row, "translated_text"))
+    prediction = _safe_get(pred, "translated_text", _safe_get(row, "prediction_text"))
+
+    # 마지막 fallback
+    if prediction is None:
+        prediction = str(row)
+
+    return source, reference, prediction, score
+
+
+def run_evaluate(lm_type: str = "claude") -> dspy.evaluate.EvaluationResult:
     get_lm(lm_type)
-    devset = load_test_devset(dataset_path)
-    collector: List[dict] = []
+    items = load_test_dataset_json()
+    examples = change_to_the_examples(items)
 
-    def _wrapper_metric(example: dspy.Example, pred: dspy.Prediction, trace=None):
-        scores = metric_llm(example, pred, trace=trace, evaluation=True)
-        row = {
-            "original_text": example.original_text,
-            "translated_text": example.translated_text,
-            "ai_text": getattr(pred, "translated_text", ""),
-            **scores,
-        }
-        collector.append(row)
-        return sum(scores.values()) / 5.0
-
-    program = TranslateModule()
-    if load:
-        artifact_path = Path(optimized_path) if optimized_path is not None else _DEFAULT_OPTIMIZED_ARTIFACT
-        program.load(str(artifact_path))
-    evaluator = Evaluate(
-        devset=devset,
-        metric=_wrapper_metric,
-        num_threads=num_threads,
-        display_progress=display_progress,
-        display_table=display_table,
+    run = wandb.init(
+        project="wissenschaft-translation-eval",
+        # API 키가 유효하면 online으로 동작
+        config={"lm_type": lm_type, "dataset_size": len(examples), "metric": "metric_llm_v2"},
     )
-    evaluator(program)
 
-    _EVALUATION_LOGS_DIR.mkdir(parents=True, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_path = _EVALUATION_LOGS_DIR / f"log_data_{timestamp}.txt"
-    with log_path.open("w", encoding="utf-8") as f:
-        json.dump(collector, f, ensure_ascii=False, indent=2)
+    try:
+        evaluator = dspy.Evaluate(devset=examples, metric=metric_llm_v2)
+        result = evaluator(program=TranslateModule())
 
-    return collector
+        # 1) 요약 메트릭
+        payload = {
+            "eval/score": _safe_get(result, "score"),
+            "eval/num_examples": len(examples),
+        }
+        wandb.log({k: v for k, v in payload.items() if v is not None})
+
+        # 2) 문장별 테이블
+        rows = _safe_get(result, "results", [])
+        table = wandb.Table(columns=["idx", "source", "reference", "prediction", "score"])
+
+        for idx, row in enumerate(rows):
+            source, reference, prediction, score = _extract_row(row)
+            table.add_data(idx, source, reference, prediction, score)
+
+        wandb.log({"eval/per_example_table": table})
+
+        # 디버깅용: 결과 구조 확인
+        wandb.summary["results_count"] = len(rows)
+
+        return result
+    finally:
+        wandb.finish()
+
+
+if __name__ == "__main__":
+    result = run_evaluate()
+    print(result)

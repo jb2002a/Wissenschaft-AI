@@ -1,0 +1,38 @@
+{
+  "os": "Windows-10-10.0.19045-SP0",
+  "python": "CPython 3.11.9",
+  "startedAt": "2026-03-23T15:41:59.893377Z",
+  "program": "-m src.translation.evaluate.run_evaluate",
+  "git": {
+    "remote": "https://github.com/jb2002a/Wissenschaft-AI.git",
+    "commit": "cca937d943d4c3c6298477752fd1f51089e5c203"
+  },
+  "email": "2jaebin@gmail.com",
+  "root": "C:\\Users\\jb\\Desktop\\Git\\Wissenschaft-AI",
+  "host": "DESKTOP-2C3TQ9C",
+  "executable": "C:\\Users\\jb\\Desktop\\Git\\Wissenschaft-AI\\.venv\\Scripts\\python.exe",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce GTX 1660 SUPER",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "499378987008",
+      "used": "462707294208"
+    }
+  },
+  "memory": {
+    "total": "34263580672"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce GTX 1660 SUPER",
+      "memoryTotal": "6442450944",
+      "cudaCores": 1408,
+      "architecture": "Turing",
+      "uuid": "GPU-842729b8-1047-d954-adc2-9814d8280235"
+    }
+  ],
+  "cudaVersion": "13.0",
+  "writerId": "olgfllwvzrt7kc1i1fm3dokiwbwarz8j"
+}

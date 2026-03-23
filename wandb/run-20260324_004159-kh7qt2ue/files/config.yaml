@@ -1,0 +1,58 @@
+_wandb:
+    value:
+        cli_version: 0.25.1
+        e:
+            olgfllwvzrt7kc1i1fm3dokiwbwarz8j:
+                cpu_count: 6
+                cpu_count_logical: 12
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "499378987008"
+                        used: "462707294208"
+                email: 2jaebin@gmail.com
+                executable: C:\Users\jb\Desktop\Git\Wissenschaft-AI\.venv\Scripts\python.exe
+                git:
+                    commit: cca937d943d4c3c6298477752fd1f51089e5c203
+                    remote: https://github.com/jb2002a/Wissenschaft-AI.git
+                gpu: NVIDIA GeForce GTX 1660 SUPER
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Turing
+                      cudaCores: 1408
+                      memoryTotal: "6442450944"
+                      name: NVIDIA GeForce GTX 1660 SUPER
+                      uuid: GPU-842729b8-1047-d954-adc2-9814d8280235
+                host: DESKTOP-2C3TQ9C
+                memory:
+                    total: "34263580672"
+                os: Windows-10-10.0.19045-SP0
+                program: -m src.translation.evaluate.run_evaluate
+                python: CPython 3.11.9
+                root: C:\Users\jb\Desktop\Git\Wissenschaft-AI
+                startedAt: "2026-03-23T15:41:59.893377Z"
+                writerId: olgfllwvzrt7kc1i1fm3dokiwbwarz8j
+        m: []
+        python_version: 3.11.9
+        t:
+            "1":
+                - 95
+                - 105
+                - 107
+            "2":
+                - 95
+                - 105
+                - 107
+            "3":
+                - 2
+                - 16
+            "4": 3.11.9
+            "5": 0.25.1
+            "8":
+                - 3
+            "12": 0.25.1
+            "13": windows-amd64
+dataset_size:
+    value: 52
+lm_type:
+    value: claude

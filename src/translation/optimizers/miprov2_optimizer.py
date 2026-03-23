@@ -11,7 +11,7 @@ import dspy
 
 from src.translation.data.dataset import get_train_valset
 from src.translation.modules.translate import TranslateModule, get_lm
-from src.translation.metrics.translate_metric_comet import metric_comet
+from src.translation.metrics.translate_metric_llm import metric_llm_v2
 
 
 def compile_translation_with_miprov2(
@@ -42,7 +42,7 @@ def compile_translation_with_miprov2(
     )
 
     optimizer = dspy.MIPROv2(
-        metric=metric_comet,
+        metric=metric_llm_v2,
         auto=auto,
         max_bootstrapped_demos=max_bootstrapped_demos,
         max_labeled_demos=max_labeled_demos,

@@ -1,0 +1,4 @@
+[34m[1mwandb[0m: Detected [dspy, litellm, openai] in use.
+[34m[1mwandb[0m: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+[34m[1mwandb[0m: For more information, check out the docs at: https://weave-docs.wandb.ai/
+2026/03/24 00:42:03 INFO dspy.evaluate.evaluate: Average Metric: 4466.0 / 52 (8588.5%)
