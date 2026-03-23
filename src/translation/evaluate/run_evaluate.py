@@ -1,4 +1,4 @@
-"""LLM-as-a-judge evaluation, 현재는 사용하지 않음.
+"""LLM-as-a-judge evaluation, 
 
 실행 예 (프로젝트 루트에서):
   # 최적화 모듈 로드(기본)
