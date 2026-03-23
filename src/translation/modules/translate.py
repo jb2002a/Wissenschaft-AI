@@ -1,13 +1,9 @@
-"""LM 로드(get_lm), predict(translate), 및 MIPROv2용 dspy.Module(student)."""
-
-import os
+"""번역 DSPy 모듈(translate)."""
 
 import dspy
-from dotenv import load_dotenv
 
+from src.translation.modules.get_lm import get_lm
 from src.translation.signatures.german_to_korean import GermanToKorean
-
-load_dotenv()
 
 
 
@@ -23,20 +19,10 @@ class TranslateModule(dspy.Module):
         return out
 
 
-def get_lm() -> None:
-    """DSPy LM을 로드하고 전역으로 설정한다."""
-    api_key = os.getenv("GOOGLE_API_KEY")
-    if not api_key:
-        raise ValueError("API 키가 설정되지 않았습니다.")
-    lm = dspy.LM("gemini/gemini-2.5-pro", api_key=api_key, temperature=0.0)
-    dspy.configure(lm=lm)
-
-
-def translate(original_text: str) -> str:
+def translate(original_text: str, lm_type: str = "gemini") -> str:
     """번역 실행 모듈, 기본 모델로 번역"""
     
-    get_lm()
-
+    get_lm(lm_type)
     predictor = dspy.Predict(GermanToKorean)
 
     out = predictor(original_text=original_text)
@@ -46,9 +32,10 @@ def translate(original_text: str) -> str:
 def translate_with_optimized(
     original_text: str,
     optimized_path: str = "artifacts/translation_optimized.json",
+    lm_type: str = "gemini",
 ) -> str:
     """optimizer 모듈 로드 후 번역 진행"""
-    get_lm()
+    get_lm(lm_type)
     module = TranslateModule()
     module.load(optimized_path)
     out = module(original_text=original_text)

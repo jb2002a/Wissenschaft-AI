@@ -26,14 +26,16 @@ def compile_translation_with_miprov2(
     save_after_compile: bool = True,
     show_prompt_history: bool = True,
     prompt_history_n: int = 5,
+    lm_type: str = "gemini",
     **compile_kwargs: Any,
+
 ) -> None:
     """
     LM 설정 후 merged_mapping 길이 기준 train_ratio로 분할한 데이터로 MIPROv2를 실행한다.
     save_after_compile=False면 compile만 수행하고 저장하지 않는다.
     show_prompt_history=True면 optimizer.compile()이 끝난 뒤 최근 프롬프트 히스토리를 콘솔에 출력한다.
     """
-    get_lm()
+    get_lm(lm_type)
 
     trainset, valset = get_train_valset(
         train_ratio=train_ratio, seed=seed, shuffle=shuffle

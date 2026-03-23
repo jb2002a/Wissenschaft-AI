@@ -52,6 +52,7 @@ def run_translation_evaluate(
     display_table: bool | int = False,
     load: bool = True,
     optimized_path: str | Path | None = None,
+    lm_type: str = "gemini",
 ) -> List[dict]:
     """
     DSPy Evaluate로 테스트 데이터셋에 대해 번역 품질 평가를 수행하고,
@@ -66,7 +67,7 @@ def run_translation_evaluate(
     Returns:
         list[dict]: 각 샘플별 original_text, translated_text, ai_text, faithfulness, terminology_accuracy, korean_fluency, style_register, overall_score
     """
-    get_lm()
+    get_lm(lm_type)
     devset = load_test_devset(dataset_path)
     collector: List[dict] = []
 
